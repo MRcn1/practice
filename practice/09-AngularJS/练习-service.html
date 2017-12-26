@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    <button ng-click="but1()">开始打印</button>
+    <button ng-click="but2()">结束打印</button>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng'])
+
+    app.service('$show',function($interval){
+        this.start=function(){
+            times=$interval(function(){
+                console.log('打印一句话')
+            },1000)
+        }
+        this.stop=function(){
+            $interval.cancel(times)
+        }
+    })
+
+    app.controller('myCtrl', function ($scope,$show) {
+        $scope.but1=function(){
+            $show.start()
+        }
+
+        $scope.but2=function(){
+            $show.stop()
+        }
+    })
+</script>
+
+</body>
+</html>

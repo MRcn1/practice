@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.text-danger{
+			color: red;
+		}
+		.text-success{
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<form action="">
+		手机号：<input id="inp" type="text" name="phone"><span id="phone"></span><br>
+		密码号：<input type="text" name="password"><br>
+		<input type="submit">
+	</form>
+
+	<script>
+		inp.onblur=function(){
+			var con=this.value
+			if(!con){
+				return
+			}
+			var xhr=new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState===4){
+					if(xhr.status===200){
+						//alert("响应成功")
+						doResponse(xhr)
+					}else{
+						alert('响应成功但有问题')
+					}
+				}
+			}
+			xhr.open('POST','phone-post.php',true)
+			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+			xhr.send('phone='+con)
+		}
+
+		function doResponse(xhr){
+			if(xhr.responseText==='cunzai'){
+				phone.innerHTML='该手机号已被注册'
+				phone.classname='text-danger'
+			}else if(xhr.responseText==='bucunzai'){
+				phone.classname='text-success'
+				phone.innerHTML='该手机号可以注册'
+			}else{
+				phone.innerHTML='不可识别的响应数据'+xhr.responseText
+			}
+		}
+	</script>
+</body>
+</html>

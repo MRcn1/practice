@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//定时器永远最后执行
+	var lilei={
+		sname:'li lei',
+		intr(){
+			console.log(`I AM ${this.sname}`)
+		}
+	}
+	lilei.intr()
+	setTimeout(lilei.intr.bind(lilei),0)
+	</script>
+</body>
+</html>

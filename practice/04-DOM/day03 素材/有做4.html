@@ -1,0 +1,79 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>表单提交验证</title>
+<meta charset="utf-8" />
+<style>
+	.hintText{color: #aaaaaa; font-style: italic; }
+	.normalText { color: #000000;}
+</style>
+<script>
+	
+</script>
+
+</head>
+<body>
+	<h2>发表留言</h2>
+<form name="msgForm">
+	姓名：<input name="userName" class="hintText" 
+				value="请输入您的姓名"/>
+		  <span>姓名不能为空</span><br />
+				
+	内容：<textarea name="content" class="hintText" 
+					rows="5" cols="30"
+					style="resize:none">请输入留言内容</textarea><br />
+	<label>
+		<input type="checkbox"  />我已阅读了《常见问题列表》
+	</label>
+	<br/>
+	<input type="button" disabled value="提交"/>
+</form>
+
+<script type="text/javascript">
+	var form=document.forms[0];
+
+	form.userName.onfocus=function(){
+		getfocus(this,"请输入您的姓名")
+	};
+
+	form.content.onfocus=function(){
+		getfocus(this,'请输入留言内容')
+	}
+	function getfocus(txt,msg){
+		if(txt.value==msg){
+			txt.value=''
+			txt.className=''
+		}
+	};
+
+	form.userName.onblur=function(){
+		getblur(this,"请输入您的姓名")
+	}
+
+	form.content.onblur=function(){
+		getblur(this,'请输入留言内容')
+	}
+	function getblur(txt,msg){
+		var reg=new RegExp('^(\\s*|'+msg+')$')
+		if(reg.test(txt.value)){
+			txt.value=msg
+			txt.className='hintText'
+		}
+	};
+
+	form.elements[form.length-2].onclick=function(){
+		form.elements[form.length-1].disabled=!this.checked
+	}
+
+	form.elements[form.length-1].onclick=function(){
+		if(form.userName.value=="请输入您的姓名"){
+			form.userName.focus()
+		}else if(form.content.value=="请输入留言内容"){
+			form.content.focus()
+		}else{
+			form.submit()	//提交表单
+		}
+	};
+</script>
+</body>
+</html>

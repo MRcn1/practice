@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+</head>
+<body>
+<div id="react"></div>
+<script src="js/react.js"></script>
+<script src="js/react-dom.js"></script>
+<script src="js/browser.min.js"></script>
+<script type="text/babel">
+    var Hello=React.createClass({
+        propTypes:{
+            title:React.PropTypes.string.isRequired
+        },
+        render:function(){
+            return <h2>{this.props.title}</h2>
+        }
+    })
+
+    var data='123'
+
+    ReactDOM.render(<Hello title={data}/>,document.getElementById('react'))
+</script>
+</body>
+</html>

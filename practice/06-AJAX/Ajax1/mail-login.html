@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <title>标题</title>
+    <meta charset="utf-8">
+    <style>
+      .modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(0,0,0, .5);
+        display: none;
+      }
+      .modal.active {
+        display: block;
+      }
+      .modal-dialog {
+        width: 360px;
+        margin: 150px auto;
+      }
+      .modal-content {
+        background: #fff;
+        border-radius: 4px;
+        padding: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loginArea">
+      <a href="#" id="btLogin">用户登录</a>
+      <!--<span>欢迎回来：13501234567</span> -->
+    </div>
+
+    <!--用户登录模态框 -->
+    <div class="modal" id="modalLogin"><!--全屏的半透明遮罩层-->
+      <div class="modal-dialog"> <!--尺寸位置-->
+        <div class="modal-content">  <!--背景-->
+          手机号：<input id="phone"><br>
+          密码号：<input id="pwd"><br>
+          <input type="button" value="提交" id="btSubmit">
+        </div>
+      </div>
+    </div>
+
+    <script>
+    //单击“用户登录”弹出登录模态框
+    btLogin.onclick = function(e){
+      e.preventDefault();
+      modalLogin.className = "modal active";
+    }
+    btSubmit.onclick=function(){
+    	var p=document.getElementById('phone')
+    	var pp=document.getElementById('pwd')
+    	var phone=p.value
+    	var pwd=pp.value
+
+    	var xhr=new XMLHttpRequest()
+    	xhr.onreadystatechange=function(){
+    		if(xhr.readyState===4){
+    			if(xhr.status===200){
+    				doResponse(xhr,phone)
+    			}else{
+    				alert('响应成功但有问题')
+    			}
+    		}
+    	}
+    	xhr.open('POST','mail-login.php',true)
+    	xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+    	xhr.send(`phone=${phone}&pwd=${pwd}`)
+
+    }
+
+    function doResponse(xhr,phone){
+    	if(xhr.responseText==='cunzai'){
+    		modalLogin.className = "modal"
+
+    		btLogin.innerHTML='欢迎——'+phone
+    	}
+    }
+    </script>
+  </body>
+</html>

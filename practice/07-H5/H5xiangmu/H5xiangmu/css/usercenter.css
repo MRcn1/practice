@@ -1,0 +1,32 @@
+#main{
+    width: 1211px;
+    margin: 0 auto;
+}
+
+.affix{
+    float: left;
+    widows: 210px;
+}
+.affix li{
+    line-height: 2em;
+    padding: 0.3em;
+}
+
+.affix li.active>a{
+    font-weight: bold;
+}
+
+.right{
+    width: 100%;
+    margin-left: 210px;
+    min-height: 200px;
+    padding: 1em;
+}
+
+.right>div{
+    display: none;
+}
+
+.right>div.active{
+    display: block;
+}

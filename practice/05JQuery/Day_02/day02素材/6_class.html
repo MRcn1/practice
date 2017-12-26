@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+	<style>
+		.alert{
+			padding: 10px;
+			background: #fee;
+			border: 1px solid #a33;
+			color: #992;
+		}
+
+		.close{
+			float: right;
+			opacity: 0.3;
+			font-weight:bold;
+			cursor: pointer;
+		}
+		.close:hover{
+			opacity: 1;
+		}
+		.fade{
+			overflow: hidden;
+			width: 0;
+			height: 0;
+			opacity: 0;
+			transition: all .5s linear;
+		}
+		.fade.in{
+			opacity: 1;
+			width: 95%;
+			height: 50px;
+		}
+	</style>
+ </head>
+ <body>
+ 	<button id="btn1">click me!</button>
+  	<div class="alert fade">
+  		<span class="close" data-trigger="close">×</span>
+  		<p>你的浏览器版本太低，建议升级</p>
+  	</div>
+  	<script type="text/javascript" src='js/jquery-1.11.3.js'></script>
+  	<script type="text/javascript">
+  	$('#btn1').click(function(){
+  		$('.alert').addClass('in')
+  	})
+  	$('.alert>[data-trigger="close"]').click(function(){
+  		$(this).parent().removeClass('in')
+  	})
+  	</script>
+ </body>
+</html>

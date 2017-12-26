@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	"use strict"
+
+	var eric={
+		id:1001,
+		ename:'Eric',
+		salary:10000,
+	}
+	
+	Object.defineProperties(eric,{
+		id:{writable:false,configurable:false},
+		ename:{writable:false,configurable:false},
+		salary:{enumerable:false,configurable:false}
+	})
+	console.log(eric.id)
+	console.dir(eric)
+	for(var key in eric){
+		console.log(key+':'+eric[key])
+	}
+	// Object.defineProperty(eric,'id',{writable:false,configurable:false})
+	// console.log(eric.id)
+	
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

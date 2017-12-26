@@ -1,0 +1,78 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	margin-top: 40px;
+}
+
+.ui-icon {
+	display: none;
+}
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{
+	width: 70px;
+	height: 25px;
+	margin-left: 10px;
+}
+
+.ui-widget-header{
+	background-image: url(../images/bg.jpg);
+}
+
+#header{
+	width: 1360px;
+	height: 40px;
+	background-image: url(../images/bg.jpg);
+	position: absolute;
+	top: 0px;
+}
+
+#header h1{
+	margin-left: 150px;
+	float: left;
+	color: #716969;
+	font-size: 27px;
+	margin-top: 4px;
+}
+
+#header .st{
+	width: 300px;
+	height: 30px;
+	margin: 5px 0 0 8px;
+	border: 1px solid #ccc;
+	font-size: 14px;
+	color: #666;
+}
+
+#header .ss{
+	width: 70px;
+	height: 33px;
+	margin-top: -1px;
+	line-height: 20px;
+}
+
+#header span{
+	float: right;
+	margin:8px 50px 0 0;
+}
+
+#header span a{
+	text-decoration: none;
+	color: #555;
+	font-size: 15px;
+}
+
+
+
+#dlk .text{
+	height: 20px;
+	border-radius: 4px;
+}
+
+#dlk p{
+	margin: 13px 0 0 0;
+	padding: 0;
+}
+

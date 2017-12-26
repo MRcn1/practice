@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+    <title>ToDoList</title>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+
+    var ToDoBox = React.createClass({
+        getInitialState:function(){
+          return{data:[]};
+        },
+        handlerAdd:function(str){
+
+            var newData= this.state.data;
+            newData.push(str);
+            this.setState({data:newData});
+            console.log(this.state.data);
+        },
+        handlerDelete:function(index){
+            var newData = this.state.data;
+            newData.splice(index,1);
+            this.setState({data:newData});
+            console.log(newData);
+        },
+        render:function(){
+            return (
+                    <div>
+                            <h1>待做事项列表</h1>
+                            <ToDoInput handlerAdd={this.handlerAdd}/>
+                            <ToDoList allData={this.state.data} handlerDelete={this.handlerDelete}/>
+                    </div>
+            )
+        }
+    })
+
+    var ToDoInput = React.createClass({
+        handlerClick:function(){
+            this.props.handlerAdd(this.refs.inputArea.value);
+        },
+        render:function(){
+            return (
+                    <div>
+                            <input ref='inputArea'/>
+                            <button onClick={this.handlerClick}>Add</button>
+                    </div>
+            )
+        }
+    })
+
+    var ToDoList = React.createClass({
+       setUpList:function(){
+            return(
+            this.props.allData.map(function(content,i){
+                	return <ToDoItem deleMe={this.props.handlerDelete} key={i} content={content} index={i}/>
+       			}.bind(this))
+        )
+       } ,
+       render: function () {
+           return(
+                   <ul>
+                  	 {this.setUpList()}
+                   </ul>
+           )
+       }
+    });
+
+    var ToDoItem = React.createClass({
+        handlerClick:function(){
+          this.props.deleMe(this.props.index);
+        },
+        render:function(){
+            return (
+                  <li>
+                        <button onClick={this.handlerClick}>delete</button>
+                        <span>{this.props.content}</span>
+                  </li>
+            )
+        }
+    })
+
+    ReactDOM.render(
+    < ToDoBox />, document.getElementById('example')
+    );
+
+</script>
+</body>
+
+</body>
+</html>

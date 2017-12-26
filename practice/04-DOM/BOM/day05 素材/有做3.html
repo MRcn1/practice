@@ -1,0 +1,31 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>事件处理</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/3.css"/>
+		<script>
+			
+		</script>
+	</head>
+	<body>
+		<div class="d1">
+			<div class="d2">
+				<div class="d3">
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		function fn(e){
+			this.style.background='yellow'
+			alert('我是'+this.className)
+			e.stopPropagation()
+		}
+
+		document.querySelector('.d1').addEventListener('click',fn)
+		document.querySelector('.d2').addEventListener('click',fn)
+		document.querySelector('.d3').addEventListener('click',fn)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<select id="select">
+		
+	</select>
+	<script type="text/javascript">
+		var one=['广东省','广西省','福建省']
+		//var bef=String(one);
+		one[one.length]='海南省'
+		one[one.length]='海南'
+		var html='<option>'+one.join('</option><option>')+'</option>'
+		select.innerHTML=html;
+	</script>
+</head>
+<body>
+
+</body>
+</html>

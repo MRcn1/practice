@@ -1,0 +1,13 @@
+SET NAMES utf8;
+
+DROP DATABASE IF EXISTS sohu;
+
+CREATE DATABASE sohu;
+
+USE sohu;
+
+CREATE TABLE mail(mig int primary key auto_increment,phone varchar(20),pwd varchar(20),lastlogintime bigint);
+
+INSERT INTO mail VALUES(NULL,'15203252161','123456','1234567890');
+INSERT INTO mail VALUES(NULL,'18703252161','321321','1234547890');
+INSERT INTO mail VALUES(NULL,'16703252161','222222','1234547890');

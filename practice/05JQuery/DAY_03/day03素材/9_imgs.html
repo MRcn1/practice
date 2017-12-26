@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <style>
+	img{
+		position: absolute;
+	}
+ </style>
+ <body>
+	<h1>练习：jQuery万能动画函数</h1>
+	
+	<img src="img/1.jpg">
+	<img src="img/2.jpg">
+	<img src="img/3.jpg">
+	<img src="img/4.jpg">
+	<script src='js/jquery-1.11.3.js'></script>
+	<script>
+	$('img').click(function(){
+		$(this).animate({
+			width:400,height:300,opacity:0
+		},1000,function(){
+			$(this).remove()
+			$('img').each(function(i){
+		$(this).css('left',i*200)
+	})
+		})
+	}).each(function(i){
+		$(this).css('left',i*200)
+	})
+	</script>
+ </body>
+</html>

@@ -1,0 +1,59 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    width: 500px;
+    height: 280px;
+    margin:100px auto 0 auto;
+    border: 1px solid #aaffaa;
+}
+
+.form-group{
+    margin-top: 30px;
+}
+
+.control-laber{
+    display: inline-block;
+    width: 70px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+.form-control{
+    padding: 4px;
+    border-radius: 3px;
+    width: 210px;
+}
+
+.help-block{
+    border: 1px solid transparent;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.priamry{
+    background-color: darksalmon;
+    border-color: azure;
+    display: inline-block;
+}
+
+.danger{
+    background-color: brown;
+}
+
+.success{
+    background-color: goldenrod;
+}
+
+.hide{
+    display: none;
+}
+
+#vid{
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    top: 40px;
+    z-index: -30;
+}

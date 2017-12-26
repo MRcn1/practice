@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+
+<div ng-controller="myctrl">
+    <input type="text" value="{{num}}">
+    <button ng-click="fn()">按钮</button>
+</div>
+
+<script>
+    var app=angular.module('myapp',['ng'])
+
+    app.controller('myctrl',function($scope){
+        $scope.num=0
+
+        $scope.fn=function(){
+            $scope.num++
+        }
+
+    })
+</script>
+
+</body>
+</html>

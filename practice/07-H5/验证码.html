@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: left;
+        }
+
+        #span{
+            cursor: pointer;
+            color: blueviolet;
+        }
+
+    </style>
+</head>
+<body>
+<canvas id="can" width="100" height='50'></canvas>
+<span id="span" href="">看不清？换一张</span>
+
+<script type="text/javascript">
+    var ctx=can.getContext('2d')
+    function test(){
+        can.style.background=rb(150,230)
+
+        function rn(min,max){
+            return Math.floor(Math.random()*(max-min+1)+min)
+        }
+
+        function rb(min,max){
+            var r=rn(min,max)
+            var g=rn(min,max)
+            var b=rn(min,max)
+
+            return `rgb(${r},${g},${b})`
+        }
+
+        var num=[]
+        for(var u=48;u<=57;u++){
+            num.push(String.fromCharCode(u))
+        }
+        for(var u=97;u<=122;u++){
+            num.push(String.fromCharCode(u))
+        }
+        for(var u=65;u<=90;u++){
+            num.push(String.fromCharCode(u))
+        }
+
+        function fn(){
+            var one=[];
+            for(var i=0;i<5;i++){
+                var r=rn(0,62)
+                one.push(num[r])
+            }
+            return one.join('')
+        }
+
+        var code=fn()
+
+
+        ctx.textBaseline='top'
+        ctx.font='30px SimHei'
+        for(var i=0;i<5;i++){
+            var d=rn(0,10)
+            ctx.rotate(d*Math.PI/180)
+            ctx.fillText(code[i],15*(i+1),5)
+            ctx.rotate(-d*Math.PI/180)
+        }
+
+        for(var i=0;i<50;i++){
+            ctx.beginPath()
+            ctx.arc(x,y,1,0,360*Math.PI/180)
+            var x=rn(0,100)
+            var y=rn(0,50)
+            ctx.strokeStyle=rb(100,230)
+            ctx.stroke()
+        }
+
+        for(var i=0;i<5;i++){
+            ctx.beginPath()
+            ctx.moveTo(mx,my)
+            ctx.lineTo(lx,ly)
+            var mx=rn(0,100)
+            var my=rn(0,50)
+            var lx=rn(0,100)
+            var ly=rn(0,50)
+            ctx.strokeStyle=rb(130,180)
+            ctx.lineWidth=2
+            ctx.stroke()
+        }
+    }
+
+    test()
+    span.onclick=function(){
+        ctx.clearRect(0,0,100,50)
+        test()
+    }
+</script>
+</body>
+</html>
+
+
+
+
+

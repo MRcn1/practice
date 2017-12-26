@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body ng-app>
+
+    <table  ng-init="stu=[
+            {name:'fdsf',sex:'nan',scroe:90},
+            {name:'fdsf',sex:'nan',scroe:70},
+            {name:'fdsf',sex:'nan',scroe:50}
+    ]">
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>成绩</th>
+        </tr>
+        <tr ng-repeat="tmp in stu" ng-if="tmp.scroe>50">
+            <td>{{tmp.name}}</td>
+            <td>{{tmp.sex}}</td>
+            <td>{{tmp.scroe}}</td>
+        </tr>
+        <!--  <tr ng-repeat="obj in stu">
+            <td ng-repeat="tmp in obj">{{tmp}}</td>
+        </tr>
+        -->
+
+    </table>
+</body>
+</html>

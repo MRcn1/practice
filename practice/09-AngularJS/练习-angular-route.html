@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <title></title>
+</head>
+<body ng-controller="parentCtrl">
+
+<div ng-view>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng','ngRoute'])
+
+
+    //难点:路由器配置
+    app.config(function($routeProvider){
+        $routeProvider
+                .when('/start',{templateUrl:'tpl/start.html'})
+                .when('/register',{templateUrl:'tpl/register.html'})
+                .otherwise({redirectTo:'/start'})
+    })
+
+    app.controller('parentCtrl',['$scope','$location',function($scope,$location){
+        $scope.jump=function(age){
+            $location.path(age)
+        }
+    }])
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		function shuang(n){
+		if (n<10) {
+			return '0'+n;
+		}else{
+			return ''+n;
+		}
+	};
+	var aImg=document.getElementsByTagName('img');
+	function tick(){
+		var oDate=new Date();
+		var str=shuang(oDate.getHours())+shuang(oDate.getMinutes())+shuang(oDate.getSeconds());
+
+		for(var i=0;i<aImg.length;i++){
+		aImg[i].src='images/'+str.charAt(i)+'.png';
+	}
+	};
+	setInterval(tick,1000);
+	tick();
+};
+	</script>
+</head>
+<body style="color: white;font-size: 50px; background: url(images/bg.png); margin: 250px 450px;">
+	<img src="images/0.png">
+	<img src="images/0.png">
+	::
+	<img src="images/0.png">
+	<img src="images/0.png">
+	::
+	<img src="images/0.png">
+	<img src="images/0.png">
+</body>
+</html>

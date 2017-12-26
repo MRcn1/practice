@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+
+<div id="example"></div>
+
+<script type="text/babel">
+  var AComponent = React.createClass({
+    handleChange:function(){
+
+      this.props.funcSave(this.refs.inputTxt.value);
+    },
+    render:function(){
+      return <input type='text'
+      onChange={this.handleChange} ref='inputTxt'/>
+    }
+  })
+
+
+  var BComponent = React.createClass({
+    handleClick:function(){
+        console.log("B组件获取的值为："+
+        this.props.funcGet());
+    },
+    render:function(){
+      return <button onClick={this.handleClick}>
+      {this.props.buttonName}
+      </button>
+    }
+  })
+
+  var MainComponent = React.createClass({
+    getInitialState:function(){
+      return {result:''}
+    },
+    save:function(arg){
+      this.setState({result:arg},function(){
+        console.log(this.state.result);
+      })
+    },
+    get:function(){
+      return this.state.result;
+    },
+    render:function(){
+      return <div>
+        <AComponent funcSave={this.save}/>
+        <BComponent funcGet={this.get}
+        buttonName='clickMe'/>
+      </div>
+    }
+  })
+
+  ReactDOM.render(
+  <MainComponent/>,
+  document.getElementById('example')
+  )
+</script>
+
+
+</body>
+</html>

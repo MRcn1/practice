@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+       div{
+           width: 300px;
+           height: 400px;
+           border: 1px solid #000;
+           margin: 100px 500px;
+       }
+        div>span{
+            display: inline-block;
+            width: 70px;
+            text-align: right;
+        }
+        div>input{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div">
+        <h4>测试试卷</h4>
+
+    </div>
+<script type="text/javascript">
+    for(var i=0;i<sessionStorage.length;i++){
+        var key=sessionStorage.key(i)
+        if(key!='true'){
+            var frag=document.createDocumentFragment()
+            var span=document.createElement('span')
+            span.innerHTML=key+'：'
+            frag.appendChild(span)
+            var input=document.createElement('input')
+            frag.appendChild(input)
+            var br=document.createElement('br')
+            frag.appendChild(br)
+            div.appendChild(frag)
+        }
+    }
+
+    var span2=document.createElement('span')
+    div.appendChild(span2)
+    var btn=document.createElement('button')
+    btn.innerHTML='提交答案'
+    btn.id='btn'
+    div.appendChild(btn)
+
+    btn.onclick=function(){
+        var list=div.querySelectorAll('input')
+        for(var i= 0,arr=[];i<list.length;i++){
+            var key=sessionStorage.key(i)
+            if(list[i].value===sessionStorage[key]){
+                arr.push(1)
+            }
+        }
+        var sum=arr.length
+        sessionStorage['true']=sum
+        location.href='webstorage1.2.html'
+    }
+</script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+<div ng-controller="myctrl">
+    <textarea ng-model="userText"></textarea>
+    <p>{{userText}}</p>
+    <select ng-model="userSel">
+        <option value="bj">北京</option>
+        <option value="sh">上海</option>
+        <option value="gz">广州</option>
+    </select>
+    <input type="checkbox" ng-model="userInp">
+</div>
+
+
+<script>
+    var app=angular.module('myapp',['ng'])
+    app.controller('myctrl',function($scope){
+
+        $scope.$watch('userText',function(){
+
+            console.log($scope.userText)
+        })
+
+        $scope.$watch('userSel',function(){
+            console.log($scope.userSel)
+        })
+
+        $scope.$watch('userInp',function(){
+            console.log($scope.userInp)
+        })
+    })
+</script>
+
+</body>
+</html>

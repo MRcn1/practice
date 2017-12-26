@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function menu(){
+			var year=prompt('年')
+			var month=prompt('月')
+			var day=prompt('日')
+			var th=''
+			for(var i=1990;i<year;i++){
+				if (i%4==0&&i%100!=0||i%400==0) {
+					th+=366
+				}else{
+					th+=365
+				}
+			}
+			for(var i=0;i<month;i++){
+				switch(i){
+					case 1:
+					case 3:
+					case 5:
+					case 7:
+					case 8:
+					case 10:
+						th+=31
+						break;
+					case 4:
+					case 6:
+					case 9:
+					case 11:
+						th+=30
+						break;
+					case 2:
+						if (i%4==0&&i%100!=0||i%400==0) {
+							th+=29
+						}else{
+							th+=28
+						}
+						break;
+
+				}
+			}
+			th+=day;
+			var data=th%7;
+			var msg=''
+			switch(data){
+				case 1:msg='一';
+				break;
+				case 2:msg='二';
+				break;
+				case 3:msg='三';
+				break;
+				case 4:msg='四';
+				break;
+				case 5:msg='五';
+				break;
+				case 6:msg='六';
+				break;
+				case 0:msg='日';
+				break;
+
+			}
+			alert(year+'年'+month+'月'+day+'日'+'是:星期'+msg);
+
+		}
+	</script>
+</head>
+<body>
+	<button onclick="menu()">星期计算器</button>
+</body>
+</html>

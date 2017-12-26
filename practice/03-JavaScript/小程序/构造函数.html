@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	function stu(name,age){
+			this.sname=name,
+			this.sage=age
+		}
+		//原型中添加共有属性
+		stu.prototype.intr=function(){
+				console.log(`i am is ${this.sname} i age ${this.sage}`)
+			}
+		stu.prototype.className='初二2班'
+
+
+
+		var lilei=new stu('lilei','11')
+		var hmm=new stu('han m m ','15')
+
+		console.log(lilei.sname,lilei.sage)
+		console.log(hmm.sname,hmm.sage)
+		lilei.intr()
+		hmm.intr()
+		console.log(lilei.className)
+		console.log(hmm.className)
+
+
+
+		//判断是否自有，共有
+		function pn(obj,pne){
+			if(obj.hasOwnProperty(pne)){ //判断pne是否属于obj的自有属性
+				console.log('自有')
+			}else if(obj[pne]!=undefined){ //不是自有且obj.pne!=undefined
+			//else if(pne in obj){           判断obj和父级是否包含pne
+				console.log('共有')
+			}else{
+				console.log('没有')
+			}
+		}
+		pn(lilei,'sname')
+		pn(lilei,'className')
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>
+

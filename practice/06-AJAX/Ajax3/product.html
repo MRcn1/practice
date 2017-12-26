@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<select id="sel">
+    <option value="0">--请选择产品类型--</option>
+</select>
+<select id="sel2">
+    <option value="0">--请选择品牌--</option>
+</select>
+
+
+<script src="js/jquery-1.11.3.js"></script>
+
+<script>
+    $(function () {
+        $.get('type_select.php', {}, function (arr, msg, xhr) {
+            var html = ''
+            for (var i = 0; i < arr.length; i++) {
+                var a = arr[i]
+                html += `<option value="${a.tid}">${a.tname}</option>`
+            }
+            sel.innerHTML += html
+        })
+
+
+    })
+
+    sel.onchange=function () {
+        var tid=this.value
+        if(tid==='0'){
+            return
+        }
+
+        $.get('producer_select.php', {typeId: tid}, function (arr, msg, xhr) {
+            var html = `<option value="0">--请选择品牌--</option>`
+            for (var i = 0; i < arr.length; i++) {
+                var a = arr[i]
+                html += `<option value="${a.typeId}">${a.pname}</option>`
+            }
+            sel2.innerHTML = html
+        })
+    }
+
+</script>
+</body>
+</html>

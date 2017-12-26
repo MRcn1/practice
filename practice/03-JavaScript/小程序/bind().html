@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	function calc(base,bonue){
+		console.log(this.sname+'的工资是'+(base+bonue))
+	}
+
+	var lilei={sname:'lilei'}
+	var hmm={sname:'han meimei'}
+
+	//临时借用calc
+	calc.call(lilei,10000,3000)
+	
+	//永久使用calc
+	var lilei_calc=calc.bind(lilei)
+
+	lilei_calc(10000,2000)
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

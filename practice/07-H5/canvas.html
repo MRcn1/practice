@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            text-align: center;
+        }
+        canvas{
+            position: relative;
+            background-color: dodgerblue;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="600" height="400"></canvas>
+    <canvas id="can2" width="600" height="400"></canvas>
+    <canvas id="can3" width="600" height="400"></canvas>
+    <canvas id="can4" width="600" height="400"></canvas>
+
+    <script>
+        //在上下左右角中绘制矩形
+        //绘制不同颜色时要先换笔的色
+        var ctx=can.getContext('2d')
+        ctx.fillRect(0,0,100,80)
+        ctx.lineWidth='10'
+        ctx.strokeRect(500,0,100,80)
+        ctx.fillStyle='#f00'
+        ctx.fillRect(0,320,100,80)
+        ctx.strokeStyle='#f0f'
+        ctx.strokeRect(500,320,100,80)
+        ctx.fillStyle='#0ff'
+        ctx.fillRect(250,160,100,80)
+        ctx.strokeRect(250,160,100,80)
+
+
+        //向下30度角移动
+        var ctx2=can2.getContext('2d')
+        ctx2.fillRect(0,0,100,80)
+        var x=0
+        var y=0
+        setInterval(function(){
+            ctx2.clearRect(0,0,600,400)
+            x+=5
+            y=x*Math.tan(Math.PI/6)
+            ctx2.fillRect(x,y,100,80)
+        },41)
+
+        //绘制文本
+        var ctx3=can3.getContext('2d')
+        var txt='现在是北京时间'
+        ctx3.textBaseline='bottom'
+        ctx3.font='20px SimHei'
+        ctx3.fillText(txt,0,400)
+        ctx3.strokeText(txt,600-ctx3.measureText(txt).width,400)
+
+        //LED字幕滚动
+        var ctx4=can4.getContext('2d')
+        ctx4.font='20px SimHei'
+        var w=ctx4.measureText('txt').width
+        var x=-w
+        setInterval(function(){
+            x++
+            ctx4.clearRect(0,0,600,400)
+            ctx4.textBaseline='top'
+            ctx4.fillText(txt,x,190)
+            if(x>600){
+                x=-w
+            }
+        },41)
+    </script>
+</body>
+</html>

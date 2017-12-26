@@ -1,0 +1,38 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>取消与利用冒泡</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/3.css"/>
+		<script>
+			
+		</script>
+	</head>
+	<body>
+		<div id="keys">
+			<button>1</button>
+			<button>2</button>
+			<button>3</button>
+			<button>4</button><br>
+			<button>C</button>
+			<button>+</button>
+			<button>-</button>
+			<button>=</button>
+		</div>
+		<textarea id="sc" style="resize:none;width:200px; height:50px;" readonly></textarea>
+		<script type="text/javascript" src='js/jquery-1.11.3.js'></script>
+		<script type="text/javascript">
+			$('#keys').delegate('button','click',function(){
+				var $sc=$('#sc')
+				var $this=$(this)
+				switch($this.html()){
+					case 'C':$sc.val('')
+					break;
+					case '=':$sc.val(eval($sc.val()))
+					break;
+					default:$sc.val($sc.val()+$this.html())
+				}
+			})
+		</script>
+	</body>
+</html>

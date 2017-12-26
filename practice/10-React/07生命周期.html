@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+</head>
+<body>
+<div id="react"></div>
+<script src="js/react.js"></script>
+<script src="js/react-dom.js"></script>
+<script src="js/browser.min.js"></script>
+<script type="text/babel">
+    var AddCount=React.createClass({
+            getInitialState:function(){
+        console.log('1...getInitialSate');
+        return {count:1};
+    },
+    componentWillMount:function(){
+        console.log('2...componentWillMount');
+    },
+    componentDidMount:function(){
+        console.log('3...componentDidMount');
+    },
+    componentWillUpdate:function(){
+        console.log('4...componentWillUpdate');
+    },
+    componentDidUpdate:function(){
+        console.log('4...componentDidUpdate');
+    },
+    handleClick:function(event){
+        this.setState({count:this.state.count+1})
+    },
+
+    render:function(){
+        return(
+                <p>
+                {this.state.count}<br/>
+    <button onClick={this.handleClick}>Add</button>
+    </p>
+    )
+    }
+    })
+
+    ReactDOM.render(
+    <AddCount/>,
+            document.getElementById("react")
+    );
+</script>
+</body>
+</html>

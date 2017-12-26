@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/babel">
+
+  var FormComponent = React.createClass({
+    getInitialState:function(){
+      return {
+            user_name:'web1609',
+            user_sex:'1',
+            user_isAgree:true
+            };
+    },
+    handleSubmit:function(event){
+      event.preventDefault();
+      console.log(this.state);
+    },
+    handleChangeName:function(event){
+      this.setState({user_name:event.target.value})
+    },
+    handleChangeSex:function(event){
+      this.setState({user_sex:event.target.value})
+    },
+    handleChangeIsAgree:function(event){
+      this.setState({user_isAgree:event.target.checked})
+    },
+    render:function(){
+      return <form onSubmit={this.handleSubmit}>
+        <label htmlFor="userName">请输入用户名</label>
+        <input  value={this.state.user_name}
+                onChange={this.handleChangeName}
+                type="text" id="userName"/>
+        <br/>
+        <label htmlFor="userSex">请选择性别</label>
+        <select id="userSex"
+                value={this.state.user_sex}
+                onChange={this.handleChangeSex}>
+          <option value="1">男</option>
+          <option value="0">女</option>
+        </select>
+        <br/>
+        <label htmlFor="userIsAgree">是否同意本站协议</label>
+        <input type="checkbox"
+               checked={this.state.user_isAgree}
+               onChange={this.handleChangeIsAgree}
+               id='userIsAgree'/>
+        <br/>
+        <input type="submit" value='注册'/>
+      </form>
+    }
+  })
+
+  ReactDOM.render(
+  <FormComponent/>,
+  document.getElementById('example')
+  )
+
+</script>
+
+</body>
+</html>

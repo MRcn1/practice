@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+ </head>
+ <style type="text/css">
+	#div{
+		border: 1px solid #afa;
+		border-radius: 6px;
+		background-color: #eee;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top: 120px;
+	}
+ </style>
+ <body>
+	<h1>jQuery动画函数——透明度动画</h1>
+	<button id="btn1">开始动画</button>
+	<div id="div">abcd</div>
+	<script type="text/javascript" src='js/jquery-1.11.3.js'></script>
+	<script>
+	$('#btn1').click(function(){
+		$('#div').animate({
+			width:'200',
+			height:'200',
+			borderRadius:'100',
+		},1000)
+	})
+	</script>
+ </body>
+</html>

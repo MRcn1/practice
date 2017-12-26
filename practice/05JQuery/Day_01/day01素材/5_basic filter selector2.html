@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8" />
+ <title>...</title>
+</head>
+<style type="text/css">
+
+	.btn_ground li{
+		padding: 6px 12px;
+		list-style-type: none;
+		float: left;
+		border:1px solid #aaa;
+	}
+
+	/*.btn_ground>li:not(:last-child){
+		border-right: none;
+	}
+
+	.btn_ground>li:first-child{
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
+
+	.btn_ground>li:last-child{
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}*/
+
+
+
+
+</style>
+<body>
+	<ul class="btn_ground">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+
+  <script type="text/javascript" src='js/jquery-1.11.3.js'></script>
+  <script type="text/javascript">
+ 	 $('.btn_ground li:lt(3)').css('border-right','none')
+ 	 $('.btn_ground>li:first').css({
+ 	 	'borderTopLeftRadius':4,
+ 	 	'borderBottomLeftRadius':4
+ 	 })
+ 	 $('.btn_ground>li:last').css({
+ 	 	'borderTopRightRadius':4,
+ 	 	'borderBottomRightRadius':4
+ 	 	
+ 	 })
+
+  </script>
+</body>
+</html>

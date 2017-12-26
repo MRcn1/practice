@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<meter id="pro" low='30' high="50" optimum="25"></meter>
+	<span id="span">123</span>
+
+	<script>
+		var timer=setInterval(tast,200)
+		
+		function tast(){
+			var span=document.getElementById('span')
+			var i=pro.value
+			i+=0.05
+			pro.value=i
+			span.innerHTML=pro.value
+			if(i>=300){
+				clearInterval(timer)
+			}
+		}
+	</script>
+</body>
+</html>

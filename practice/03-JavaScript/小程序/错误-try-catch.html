@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var num=parseFloat(prompt('请输入一个小数'))
+		var d=parseInt(prompt('请输入要保留的小数位'))
+		
+		try{
+			var r=num.toFixed(d)
+			document.write(r+'<br>')
+		}catch(err){
+			alert(err)
+		}
+		document.write('到此结束')
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #afa;
+        }
+
+        input[type='range'] {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+红色：<input id="hong" type="range" name="hong" min="0" max="255" value="255">
+<span>255</span><br>
+绿色：<input id="lv" type="range" name="lv" min="0" max="255" value="255">
+<span>255</span><br>
+蓝色：<input id="lan" type="range" name="lan" min="0" max="255" value="255">
+<span>255</span><br>
+
+<script>
+    var ipts = document.querySelectorAll('[type="range"]');
+    for (var i = 0; i < ipts.length; i++) {
+        ipts[i].onchange = function () {
+            this.nextElementSibling.innerHTML = this.value;
+            color()
+        }
+    }
+
+    function color() {
+        var r = hong.value;
+        var g = lv.value;
+        var b = lan.value;
+        div.style.background = 'rgb(' + r + ',' + g + ',' + b + ')'
+    };
+
+
+</script>
+</body>
+</html>

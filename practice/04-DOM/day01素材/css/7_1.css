@@ -1,0 +1,19 @@
+li{
+	list-style:none;
+}
+li span{
+	height: 75px;
+	padding-left: 20px;
+	cursor: pointer;
+}
+li span+ul{
+	height: 82px;
+	overflow: hidden;
+	transition:all .5s linear;
+	opacity: 1;
+}
+.open{ background: url("../img/minus.png") no-repeat center left; }
+.closed{ background: url("../img/add.png") no-repeat center left; }
+.hide{height: 0; opacity:0;}
+
+

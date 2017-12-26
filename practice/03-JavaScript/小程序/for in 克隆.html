@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	var lilei={
+		sname:'lilei',
+		age:11,
+		intr(){
+			console.log(`i am ${this.sname} i am ${this.age}`)
+		}
+	}
+
+	function clone(obj){
+		var newobj={}
+		for(var key in obj){		//遍历obj中的每个属性
+			newobj[key]=obj[key]	//为newobj中添加新属性，属性名为key，属性值为obj中key的属性的值
+		}
+		return newobj;
+	}
+
+	var lilei_con=clone(lilei)
+	console.dir(lilei)
+	console.dir(lilei_con)
+	console.log(lilei_con==lilei)
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<select name="" id="sel">
+    <option value="0">--请选择--</option>
+</select>
+<hr>
+<table width="50%" border="1px">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>成绩</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="tbodyStudent">
+
+    </tbody>
+</table>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+        window.onload=function(){
+            var xhr=new XMLHttpRequest()
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===200){
+                        doResponse(xhr)
+                    }else{
+                        alert('响应成功但有问题')
+                    }
+                }
+            }
+            xhr.open('GET','class_select.php',true)
+            xhr.send(null)
+
+            function doResponse(xhr){
+                var html=''
+                var js=JSON.parse(xhr.responseText)
+                for(var i=0;i<js.length;i++){
+                    var j=js[i]
+                    html+=`<option value="${j.cid}">${j.cname}</option>`
+                }
+                sel.innerHTML+=html
+            }
+        }
+
+    sel.onchange=function(){
+        var v=this.value
+        if(v=='0'){
+            return
+        }
+
+        var xhr=new XMLHttpRequest()
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState===4){
+                if(xhr.status===200){
+                    doResponse(xhr)
+                }else{
+                    alert('响应成功但有问题')
+                }
+            }
+        }
+        xhr.open('GET','student_select.php?cid='+v,true)
+        xhr.send(null)
+
+        function doResponse(xhr){
+            var html=''
+            var js=JSON.parse(xhr.responseText)
+            for(var i=0;i<js.length;i++){
+                var j=js[i]
+                html+=`<tr>
+                <td>${j.sid}</td>
+                <td>${j.sname}</td>
+                <td>${j.score}</td>
+                <td><a href="${j.sid}">删除</a></td>
+                </tr>`
+
+            }
+            tbodyStudent.innerHTML=html
+        }
+
+
+    }
+
+    $('table').on('click','a',function(e){
+        e.preventDefault()
+        var link=this
+        var sid=$(this).attr('href')
+        $.get('student_delete.php',{sid:sid},function(txt,msg,xhr){
+            if(txt='succ'){
+                $(link).parent().parent().remove()
+            }
+        })
+    })
+</script>
+</body>
+</html>

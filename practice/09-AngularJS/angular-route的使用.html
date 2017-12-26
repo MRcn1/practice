@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <title></title>
+</head>
+<body ng-controller="parentCtrl">
+
+<div ng-view>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng','ngRoute'])
+
+    app.config(function($routeProvider){
+        $routeProvider
+                .when('/myLogin',{templateUrl:'tpl/login.html'})
+                .when('/myMain',{templateUrl:'tpl/main.html'})
+                .otherwise({redirectTo:'myLogin'})
+    })
+
+
+    app.controller('parentCtrl',['$scope','$location',function($scope,$location){
+        $scope.jump=function(jump){
+            $location.path(jump)
+        }
+    }])
+</script>
+
+</body>
+</html>

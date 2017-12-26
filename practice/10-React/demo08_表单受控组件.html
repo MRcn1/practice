@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/babel">
+
+  var FormComponent = React.createClass({
+    getInitialState:function(){
+      return {result:'123'}
+    },
+    handleChange:function(event){
+      console.log(event.target.value);
+      this.setState({result:event.target.value});
+    },
+    handleSubmit:function(event){
+      event.preventDefault();
+      console.log(this.state.result);
+    },
+    render:function(){
+      return <form onSubmit={this.handleSubmit}>
+      <input type="text"
+            onChange={this.handleChange}
+            value={this.state.result}/>
+      <input type="submit" value='提交'/>
+      </form>
+    }
+  })
+
+  ReactDOM.render(
+  <FormComponent/>,
+  document.getElementById('example')
+  )
+
+</script>
+
+</body>
+</html>

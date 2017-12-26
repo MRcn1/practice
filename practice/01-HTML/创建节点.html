@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oBtn=document.getElementById('btn1');
+		var oUl=document.getElementById('ul1');
+		var oTxt=document.getElementById('txt1');
+	
+		oBtn.onclick=function(){
+			var oLi=document.createElement('li');
+			var aLi=oUl.getElementsByTagName('li');
+
+			oLi.innerHTML=oTxt.value;
+			oUl.insertBefore(oLi,aLi[0])
+		}
+		
+	
+};
+	</script>
+</head>
+<body>
+	<input id="txt1" type="text" name="">
+	<input id="btn1" type="button" value="按钮">
+	<ul id="ul1"></ul>
+</body>
+</html>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/zepto-touch-gesture-detect.js"></script>
+</head>
+<body>
+
+<script>
+
+  $.ajax({
+    method:'get',
+    url:'data/test.json',
+    dataType:'json',
+    success: function (data) {
+      console.log(data);
+    }
+  })
+
+  $.get('data/test.json', function (data) {
+    console.log(data);
+  })
+
+</script>
+
+</body>
+</html>

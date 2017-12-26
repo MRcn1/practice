@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mymodule">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myctrl">
+        <ul>
+            <li ng-repeat="obj in dishlist">
+                <img ng-src="img/{{obj.url}}" alt="">
+                <h3>{{obj.name}}</h3>
+                <p>{{obj.age}}</p>
+            </li>
+        </ul>
+        <button ng-click="fn()">点我加载更多</button>
+    </div>
+
+<script>
+    var app=angular.module('mymodule',['ng'])
+    app.controller('myctrl',function($scope){
+        $scope.dishlist=[
+            {url:'2.jpg',name:'宇宙',age:100},
+            {url:'3.jpg',name:'宇宙',age:100},
+            {url:'4.jpg',name:'宇宙',age:100},
+        ]
+        $scope.fn=function(){
+            $scope.dishlist.push({url:'2.jpg',name:'宇宙',age:100})
+        }
+    })
+</script>
+
+</body>
+</html>

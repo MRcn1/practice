@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <title>标题</title>
+    <meta charset="utf-8">
+    <style>
+        #btLoadMore {
+            display: block;
+            width: 100%;
+            margin: 20px auto;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+<h3>书籍列表</h3>
+<table width="100%" border="1">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>名称</th>
+        <th>价格</th>
+        <th>图片</th>
+    </tr>
+    </thead>
+    <tbody id="tbodyList">
+    <tr>
+        <td colspan="4">尚未加载任何数据</td>
+    </tr>
+    </tbody>
+</table>
+<button id="btLoadMore">加载更多数据</button>
+<script>
+    btLoadMore.onclick = function(){
+        //1
+        var xhr = new XMLHttpRequest();
+        //2
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState===4){
+                if(xhr.status===200){
+                    doResponse(xhr);
+                }else {
+                    alert('响应完成但有问题');
+                }
+            }
+        }
+        //3
+        xhr.open('GET','book_select-json.php',true);
+        //4
+        xhr.send(null);
+
+        function doResponse(xhr){
+            //使用JS中封装好的方法，把JSON格式在字符串解析为JS数组
+            var list = JSON.parse(xhr.responseText);
+            var html=''
+            for(var i=0;i<list.length;i++){
+                var b=list[i]
+                var bid= b.bid
+                var bname= b.bname
+                var price= b.price
+                var pic= b.pic
+                html+=`<tr><td>${bid}</td><td>${bname}</td><td>${price}</td><td>${pic}</td></tr>`
+            }
+            tbodyList.innerHTML += html;list
+        }
+    }
+
+</script>
+</body>
+</html>

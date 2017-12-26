@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<productList>
+    <product>
+        <name>三星</name>
+        <price>30</price>
+        <pic>3.jpg</pic>
+    </product>
+    <product>
+        <name>闪迪</name>
+        <price>20</price>
+        <pic>2.jpg</pic>
+    </product>
+    <product>
+        <name>金士顿</name>
+        <price>32</price>
+        <pic>1.jpg</pic>
+    </product>
+</productList>

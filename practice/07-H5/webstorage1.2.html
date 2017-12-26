@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+       div{
+           width: 300px;
+           height: 400px;
+           border: 1px solid #000;
+           margin: 100px 500px;
+       }
+        div>span{
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        div>input{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4>测试结果</h4>
+        <span id="sum">总单词数:</span><br>
+        <span id="succ">正确单词数:</span><br>
+        <span id="fail">错误数量:</span><br>
+        <hr>
+        <span></span><button id="btn">继续录入新单词，开始测试</button>
+    </div>
+<script type="text/javascript">
+    var length=sessionStorage.length-1
+    var duideshu=sessionStorage['true']
+    sum.innerHTML='总单词数:'+length
+    succ.innerHTML='正确单词数:'+duideshu
+    fail.innerHTML='错误数量:'+(length-duideshu)
+    btn.onclick=function(){
+        location.href='webstorage1.0.html'
+        sessionStorage.removeItem('true')
+    }
+</script>
+</body>
+</html>
+
+
+
+
+

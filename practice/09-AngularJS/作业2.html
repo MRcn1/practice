@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    <table>
+        <tr>
+            <th>选择</th>
+            <th>姓名</th>
+            <th>生日</th>
+        </tr>
+        <tr ng-repeat="obj in stu">
+            <td><input type="checkbox"
+                       ng-model="obj.issel"
+                       ng-checked="selectAll"
+                       ng-click="dangai()"></td>
+            <td ng-repeat="tmp in obj">{{tmp}}</td>
+        </tr>
+    </table><br>
+
+    <input type="checkbox"
+           ng-model="selectAll"
+           ng-checked="select"
+           ng-click="quangai()">全选/取消全选<br>
+    <button ng-click="alert()">查看</button>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng'])
+
+    app.controller('myCtrl', function ($scope) {
+        $scope.stu=[
+            {name:'tom',bir:'2011-1-12',issel:false},
+            {name:'lucy',bir:'2001-5-10',issel:false},
+        ]
+
+        $scope.alert=function(){
+            var str=''
+            angular.forEach($scope.stu,function(value,key){
+                if(value.issel){
+                    str+=value.name+'被选中'
+                }
+            })
+
+            if(str==''){
+                str='一个都没选中'
+            }
+            alert(str)
+        }
+
+        $scope.dangai=function(){
+            $scope.select=true
+            angular.forEach($scope.stu,function(value,key){
+                $scope.select=$scope.select&&value.issel
+            })
+        }
+
+        $scope.quangai=function(){
+            angular.forEach($scope.stu,function(value,key){
+                value.issel=$scope.selectAll
+            })
+        }
+    })
+</script>
+
+</body>
+</html>

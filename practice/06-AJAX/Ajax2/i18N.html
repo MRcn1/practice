@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+
+    <script>
+
+        btn.onclick=function(){
+            var xhr=new XMLHttpRequest()
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===200){
+                        doRequest(xhr)
+                    }else{
+                        alert('成功但有问题')
+                    }
+                }
+            }
+            xhr.open('GET','i18n.php',true)
+            xhr.send(null)
+        }
+
+        function doRequest(xhr){
+                eval(xhr.responseText)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function menu(){
+			var sj=Math.random()*10|0;
+			while(true){
+				var num=Number(prompt('输入一个0-9的数字'));
+				if (num>sj&&num<10) {
+					alert('猜大了')
+				}else if(num<sj&&num>=0){
+					alert('猜小了')
+				}else if(num==sj){
+					alert('猜对了')
+					break;
+				}else{
+					alert('请输入一个0——9的数字')
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<button onclick="menu();">按钮</button>
+</body>
+</html>
+

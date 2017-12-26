@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1 .active{
+			background: yellow;
+		}
+		#div1 div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			border:1px solid blue;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var odiv=document.getElementById('div1');
+		var abtn=odiv.getElementsByTagName('input');
+		var adiv=odiv.getElementsByTagName('div');
+
+		for(var i=0;i<abtn.length;i++){
+			abtn[i].index=i;
+			abtn[i].onclick=function(){
+				for(var i=0;i<abtn.length;i++){
+					abtn[i].className='';
+					adiv[i].style.display='none';
+				};
+				this.className='active';
+				adiv[this.index].style.display='block';
+			};
+		};
+
+	};
+	</script>
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<input  class="active" type="button" value="11">
+		<input type="button" value="22">
+		<input type="button" value="33">
+		<input type="button" value="44">
+		<div style="display: block;">1aaaaaaaaaaa
+		</div>
+		<div>1bbbbbbbbbbbbbbb
+		</div>
+		<div>1ccccccccccccc
+		</div>
+		<div>1dddddddddddddd
+		</div>
+	</div>
+</body>
+</html>

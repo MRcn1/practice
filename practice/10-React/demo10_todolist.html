@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/babel">
+
+  var ToDoBox = React.createClass({
+    getInitialState:function(){
+      return {list:[]}
+    },
+    add:function(arg){
+      var newList = this.state.list;
+      newList.push(arg);
+      this.setState({list:newList})
+      console.log(this.state.list);
+    },
+    delete:function(index){
+      //从状态对应的数组中删除一条数据
+    },
+    render:function(){
+      return <div>
+        <ToDoInput funcAdd={this.add}/>
+        <ToDoList thingsList={this.state.list}/>
+      </div>
+    }
+  })
+
+  var ToDoInput = React.createClass({
+    handleClick:function(){
+        this.props.funcAdd(this.refs.inputTxt.value);
+    },
+    render:function(){
+      return <div>
+        <h1>待做事项列表</h1>
+        <input type="text" ref='inputTxt'/>
+        <button onClick={this.handleClick}>add</button>
+      </div>
+    }
+  })
+
+  var ToDoList = React.createClass({
+    displayList:function(){
+        return this.props.thingsList.map(
+        function(content,index){
+          return <ToDoItem ct={content} key={index}/>
+        })
+    },
+    render:function(){
+      return <ul>
+        {this.displayList()}
+      </ul>
+    }
+  })
+
+  var ToDoItem = React.createClass({
+    render:function(){
+      return <div>
+        <button>delete</button>
+        <span>{this.props.ct}</span>
+      </div>
+    }
+  })
+
+  ReactDOM.render(
+  <ToDoBox/>,
+  document.getElementById('example')
+  )
+
+</script>
+
+</body>
+</html>

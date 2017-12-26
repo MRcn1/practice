@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+</head>
+<body>
+<div id="react"></div>
+<script src="js/react.js"></script>
+<script src="js/react-dom.js"></script>
+<script src="js/browser.min.js"></script>
+<script type="text/babel">
+    let names=['chen','wen','陈文']
+
+    var Hello=React.createClass({
+        render:function(){
+            return<div>
+            {
+                names.map(function(name){
+                        return<div key={name}>Hello,{name}!</div>
+                    })
+            }
+            </div>
+        }
+    })
+
+    ReactDOM.render(<Hello/>,document.getElementById('react'))
+</script>
+</body>
+</html>

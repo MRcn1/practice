@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/babel">
+
+  var MySwitch = React.createClass({
+    getInitialState:function(){
+      return {switch:false}
+    },
+    handleClick:function(){
+      this.setState({switch:!this.state.switch});
+    },
+    render:function(){
+      return <button onClick={this.handleClick}>
+        {"当前状态为："+this.state.switch}
+      </button>
+    }
+  })
+  ReactDOM.render(
+  <MySwitch/>,
+  document.getElementById('example')
+  )
+
+</script>
+
+</body>
+</html>

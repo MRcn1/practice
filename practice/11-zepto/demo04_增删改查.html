@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/zepto.js"></script>
+</head>
+<body>
+
+<h1> this is a header </h1>
+
+<div id="container">
+
+</div>
+
+<span> it is a span element </span>
+
+<script>
+//    插入节点
+  var elementH1 = $('h1');
+  var elementH2 = $('<h2> h2 header</h2>');
+//  elementH2.insertAfter(elementH1);
+  elementH2.insertBefore(elementH1);
+
+  var container = $('#container')
+  var elementH3 = $('<h3> header3 </h3>')
+  //container.append(elementH3);
+  elementH3.appendTo(container);
+
+  var elementH4 = $('<h4> this is header 4</h4>');
+  //container.prepend(elementH4);
+  elementH4.prependTo(container);
+
+//  修改节点
+ var elementSpan = $('span');
+//  得到元素中的内容
+  console.log(elementSpan.html());
+//  设置元素中的内容
+  elementSpan.html('data is modified');
+
+//  修改css
+  elementSpan.css({color:'red'});
+
+//  修改属性 attribute
+
+
+</script>
+
+</body>
+</html>

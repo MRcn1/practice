@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    <form name="temp_form" ng-submit="fn()">
+        <div>
+            <label for="user-name">用户名</label>
+            <input id="user-name" type="text" name="t_name" ng-model="name" required>
+            <span ng-show="temp_form.t_name.$error.required && temp_form.t_name.$dirty">用户名不能为空</span><br>
+            <label for="user-pwd">密码 </label>
+            <input id="user-pwd" type="password" name="t_pwd" ng-model="pwd" required>
+            <span ng-show="temp_form.t_pwd.$error.required && temp_form.t_pwd.$dirty">密码不能为空</span><br>
+        </div>
+        <input type="submit" ng-disabled="temp_form.$invalid">
+    </form>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng'])
+
+    app.controller('myCtrl', ['$scope',function($scope){
+        $scope.fn=function(){
+            console.log('用户名为：'+$scope.name+'密码为：'+$scope.pwd)
+        }
+    }])
+</script>
+
+</body>
+</html>

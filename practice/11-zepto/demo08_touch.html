@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/zepto-touch-gesture-detect.js"></script>
+</head>
+<body>
+
+<div id="exampleId">
+  Hello Touch Module
+  <br/>
+  Hello Gesture Module
+  <br/>
+  Hello Detect Module
+  <br/>
+</div>
+
+<script>
+
+  document.addEventListener(
+    'touchmove',
+    function (event) {
+      event.preventDefault();
+    },
+    false
+  )
+
+  //测试的时候，在控制台切换到模拟手机的模式
+
+  //  tap longTap doubleTap
+  var divider = $('#exampleId');
+  /* divider.on('tap', function () {
+   console.log(' div is tapped');
+   })*/
+
+  /*divider.on('longTap', function () {
+   console.log(' div is long tapped');
+   })*/
+
+  //  swipe swipeLeft swipeRight swipeUp swipeDown
+/*  divider.on('swipe', function () {
+    console.log(' swiped');
+  })*/
+
+  divider.on('swipeLeft', function () {
+    console.log('swipe to left');
+  })
+
+  divider.on('swipeRight', function () {
+    console.log('swipe to right');
+  })
+
+</script>
+
+
+</body>
+</html>

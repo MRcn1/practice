@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+ <html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	var hmm={
+		sname:'han mei mei',
+		age:20,
+		intr(){
+			console.log(`i am ${this.sname} i age ${this.age}`)
+		}
+	}
+
+	var gandie={
+		money:10000000,
+		car:'BMW',
+		com(){
+			console.log('阿里路亚')
+		}
+	}
+
+	Object.setPrototypeOf(hmm,gandie);
+	console.log(hmm.car)
+	hmm.com()
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

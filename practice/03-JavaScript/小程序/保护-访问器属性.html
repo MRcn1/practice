@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	"use strict"
+	function mu(sname,age,id,slice){
+		this.sname=sname;
+		this.id=id;
+		this.slice=slice;
+
+		//访问器属性
+		var _age;
+		Object.defineProperties(this,{
+			sname:{writable:false},
+			id:{writable:false},
+			slice:{enumerable:false},
+
+			age:{
+				get(){return _age},
+				set(val){
+					if(val>=18&&val<=65){
+						_age=val
+					}else{
+						throw new RangeError('年龄必须在18~65之间')
+					}
+				}
+			},
+		})
+		this.age=age
+
+		//Object.preventExtensions(this)	//防扩展，禁止向对象添加新属性
+		//Object.seal(this)					//防扩展并且configurable为false
+		Object.freeze(this)					//防扩展并且configurable,writable为false
+	}
+
+	var lilei=new mu('lilei',20,1001,10000)
+	//lilei.mo=2
+	//delete lilei.sname
+	console.dir(lilei)
+
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>
+

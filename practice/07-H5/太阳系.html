@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="draw-group"></div>
+
+<script src="../JSLB/two.js/two.min.js"></script>
+<script type="text/javascript">
+    var elem=document.getElementById('draw-group')
+    var params = { width: 1360, height: 830};
+    var two = new Two(params).appendTo(elem);
+    var guiji = two.makeCircle(0, 0, 70);
+    var diqiu = two.makeCircle(0, 0, 50);
+    var yueliang = two.makeCircle(70, 0, 10);
+    var taiyang = two.makeCircle(0, 0, 90);
+    guiji.stroke = '#000';
+    diqiu.fill = '#aaf';
+    yueliang.fill = '#afb';
+    taiyang.fill = '#f00';
+
+
+    var group = two.makeGroup(guiji, diqiu,yueliang);
+    group.translation.set(200, 190);
+
+    var group2=two.makeGroup(group, taiyang);
+    group2.translation.set(680, 385);
+
+
+    var deg=0
+    two.on('update',function(){
+        deg++
+        group.rotation=deg*Math.PI/180
+        group2.rotation=deg*Math.PI/180
+    })
+    two.play()
+</script>
+</body>
+</html>
+
+
+
+
+

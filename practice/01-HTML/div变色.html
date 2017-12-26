@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#div1{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+	<script type="text/javascript">
+	function setcolor(color) {
+		var one=document.getElementById('div1')
+		one.style.background=color;
+	}
+
+	</script>
+</head>
+<body>
+	<input type="button" value="变黄" onmouseover="setcolor('yellow')">
+	<input type="button" value="变黑" onmouseover="setcolor('black')">
+	<input type="button" value="变蓝" onmouseover="setcolor('blue')">
+	<div id="div1"></div>
+</body>
+</html>

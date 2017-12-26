@@ -1,0 +1,27 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>倒计时自动关闭/跳转页面</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+	<span id="time">5秒钟后自动关闭</span><br>
+	<a href="javascript:clearInterval(timer)">留在本页</a>
+	<script type="text/javascript">
+		var span=document.getElementById('time')
+		function task(){
+			var n=parseInt(span.innerHTML)
+			n--
+			if (n>0) {
+				span.innerHTML=n+'秒钟后自动关闭'
+			}else{
+				
+				close()
+			}
+		};
+		var timer=setInterval(task,1000)
+	</script>
+  
+</body>
+</html>

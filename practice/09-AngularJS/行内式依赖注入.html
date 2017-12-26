@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+<button ng-click="alert()">按钮</button>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng'])
+
+    app.service('$alert',function(){
+        this.fn=function(){
+                alert('行内式依赖注入')
+            }
+    })
+
+    app.controller('myCtrl', ['$scope','$alert',function ($scope,$alert) {
+        $scope.alert=function(){
+            $alert.fn()
+        }
+    }])
+</script>
+
+</body>
+</html>

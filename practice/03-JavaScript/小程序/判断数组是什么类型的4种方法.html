@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	var obj1={}
+	var obj2=[];
+	var obj3={};obj3.__proto__=obj2
+
+	//1.判断原型函数
+	console.log(Array.prototype.isPrototypeOf(obj2))
+	//2.判断构造函数
+	console.log(obj2 instanceof Array)
+	//以上两种不严格，会把obj3也认成数组
+	//3.判断对象的class属性
+	console.log(Object.prototype.toString.call(obj2))
+	//4.Array.isArray()    ES5新增
+	console.log(Array.isArray(obj2))
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>
+

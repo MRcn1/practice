@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'SimHei';
+    font-size: 1rem;
+}
+.container:before,          /*定宽容器*/
+.container-fluid:before {   /*变宽容器*/
+    content: ' ';
+    display: table;
+}
+.container:after,
+.container-fluid:after {
+    content: ' ';
+    display: table;
+    clear: both;
+}
+.my-img {
+    float: left;
+}
+
+
+/**针对PC屏幕的样式**/
+@media screen and (min-width: 992px) {
+    .container {
+        width: 970px;
+        margin: 0 auto;
+    }
+    .left,
+    .right {
+        float: left;
+        width: 20%;
+    }
+    .middle {
+        float: left;
+        width: 60%;
+    }
+    .my-img {
+        width: 25%;
+    }
+}
+
+/**针对PAD屏幕的样式**/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
+        width: 750px;
+        margin: 0 auto;
+    }
+    .left {
+        float: left;
+        width: 25%;
+    }
+    .middle {
+        float: left;
+        width: 75%;
+    }
+    .right {
+        display: none;
+    }
+    .my-img {
+        width: 25%;
+    }
+}
+
+/**针对PHONE屏幕的样式**/
+@media screen and (max-width: 767px) {
+    .container {
+        width: 100%;
+        margin: 0;
+    }
+    /*.left和.middle的宽为100%*/
+    .right {
+        display: none;
+    }
+    .my-img {
+        width: 50%;
+    }
+}
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	function fn(arr){
+		for(var i=0,one=[],two=[];i<arr.length;i++){
+			if(one[arr[i]]==undefined){
+				two[two.length]=arr[i]
+				one[arr[i]]=true
+			}
+		}
+		return two
+	}
+	console.log(String(fn(['你','我','他','你'])))
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+
+

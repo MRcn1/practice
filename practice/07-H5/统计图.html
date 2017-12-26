@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #can{
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can"></canvas>
+
+
+    <script type="text/javascript">
+        var arr=[100,200,333,400]
+
+        var w=800
+        var h=550
+        can.width=w
+        can.height=h
+        var ctx=can.getContext('2d')
+        ctx.strokeRect(50,50,700,450)
+        for(var i=0;i<arr.length;i++){
+            var cellwidth=(w-100)/(2*arr.length+1)
+            var x=(2*i+1)*cellwidth+50
+            var y=h-arr[i]-50
+            var rw=cellwidth
+            var rh=arr[i]
+            ctx.strokeRect(x,y,rw,rh)
+            var g=ctx.createLinearGradient(x,y,x,y+rh)
+            g.addColorStop(0,rc())
+            g.addColorStop(0.5,rc())
+            g.addColorStop(1,'#fff')
+            ctx.fillStyle=g
+            ctx.fillRect(x,y,rw,rh)
+        }
+
+        function rc(){
+            var r=Math.floor(Math.random()*256)
+            var g=Math.floor(Math.random()*256)
+            var b=Math.floor(Math.random()*256)
+
+            return `rgb(${r},${g},${b})`
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+

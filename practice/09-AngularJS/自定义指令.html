@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mymodule">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body>
+
+<div ng-controller="myctrl">
+
+</div>
+
+<ts-directvie ts-name="Hello World"></ts-directvie>
+
+<script>
+    var app=angular.module('mymodule',['ng'])
+
+    app.controller('myctrl',function($scope){
+
+    })
+
+    app.directive('tsDirectvie',function(){
+        return {
+            template:'<h1>{{tsName}}</h1>',
+            scope:{
+                tsName:'@'
+            }
+        }
+    })
+
+</script>
+
+</body>
+</html>

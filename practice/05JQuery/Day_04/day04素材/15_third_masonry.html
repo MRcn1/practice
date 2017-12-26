@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> </title>
+  <meta charset="utf-8"/>
+ </head>
+	<style>
+		.block{
+			width: 300px;
+		}
+	</style>
+ <body>
+  <h1>使用第三方插件函数</h1>
+  <h3>瀑布流插件</h3>
+ 	<div id="container">
+		<div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercitationem.
+		</div>
+		<div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercita ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quastionem.
+		</div><div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercitationem.
+		</div>
+		<div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercita ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quastionem.
+		</div><div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercitationem.
+		</div>
+		<div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercita ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quastionem.
+		</div><div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercitationem.
+		</div>
+		<div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercita ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quastionem.
+		</div><div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercitationem.
+		</div>
+		<div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercita ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quastionem.
+		</div>
+		<div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptat ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quasum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercitationem.
+		</div>
+		<div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercit ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quasationem.
+		</div>
+		<div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercitationem.
+		</div>
+		<div class="block">
+		    orem ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas sint alias rem voluptatibus ut quibusdam rerum ex, temporibus asperiores quae impedit exercit ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quas ipsum dolor sit amet, consectetur adipisicing elit. Modi nihil veritatis doloribus, tempora veniam, voluptatum ea quasationem.
+		</div>
+
+ 	</div>
+ 	<script src='js/jquery-1.11.3.js'></script>
+ 	<script src='js/masonry.pkgd.js'></script>
+ 	<script type="text/javascript">
+ 		$('#container>div').css('background',function(){
+ 			var r=Math.floor(Math.random()*256)
+ 			var g=Math.floor(Math.random()*256)
+ 			var b=Math.floor(Math.random()*256) 
+ 			return 'rgb('+r+','+g+','+b+')'
+ 		})
+ 		$('#container').masonry()
+ 	</script>
+ </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+<p>{{con}}</p>
+    <button ng-click="fn()">按钮</button>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng'])
+
+    app.service('$show',function(){
+        this.name="chenwen"
+        this.fun=function(){
+            alert('chenwen')
+        }
+    })
+
+    app.controller('myCtrl', function ($scope,$show) {
+        $scope.con=$show.name
+        $scope.fn=function(){
+            $show.fun()
+        }
+    })
+</script>
+
+</body>
+</html>

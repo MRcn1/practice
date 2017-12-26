@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/zepto.js"></script>
+</head>
+<body>
+
+<button id="btn">clickMe</button>
+
+<script>
+  var btn = $('#btn');
+  
+  btn.on('click', function () {
+    console.log('button is clicked');
+  })
+
+  btn.off('click');
+
+//  自定义事件
+  btn.on('customClick', function () {
+    console.log('customclick event is triggered');
+  })
+
+  btn.trigger('customClick');
+  
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/zepto.js"></script>
+</head>
+<body>
+
+<button id="btn">clickMe</button>
+
+<script>
+  var button = $('#btn');
+  console.log(button);
+  id = 0;
+  button.on('click', function () {
+    id++;
+    console.log("id is "+id);
+    if(id > 10)
+    {
+      button.off();
+      button.one('click', function () {
+        console.log('only call once');
+      })
+    }
+  })
+  
+</script>
+
+
+</body>
+</html>

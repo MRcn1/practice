@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/zepto.js"></script>
+</head>
+<body>
+
+<div id="container">
+  <ul>
+    <li>
+      <p>Test list item 01</p>
+    </li>
+    <li id="listIemId">
+      <a href="#">HyberLink</a>
+    </li>
+    <li class="testClass">
+      TEST ITEM 03
+    </li>
+  </ul>
+</div>
+
+<script>
+  var list = $('ul');
+  console.log(list);
+  console.log(list.parent());
+  console.log(list.parents());
+
+  var item = $('#listIemId');
+  console.log(item.next());
+  console.log(item.prev());
+
+  console.log(item.width());
+  console.log(item.height());
+  item.width(200);
+  console.log(item.position());
+
+</script>
+
+</body>
+</html>

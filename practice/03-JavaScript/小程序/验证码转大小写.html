@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var num=[]
+		for(var u=48;u<=57;u++){
+			num.push(String.fromCharCode(u))
+		}
+		for(var u=97;u<=122;u++){
+			num.push(String.fromCharCode(u))
+		}
+		for(var u=65;u<=90;u++){
+			num.push(String.fromCharCode(u))
+		}
+
+		function fn(){
+			var one=[];
+			for(var i=0;i<4;i++){
+				var r=parseInt(Math.random()*62)
+				one.push(num[r])
+			}
+			return one.join('')
+		}
+
+		var code=fn()
+		var input;
+		while((input=prompt("请输入验证码"+code)).toLowerCase()!=code.toLowerCase()){
+			alert('输入错误')
+			code=fn()
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

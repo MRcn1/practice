@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .chengji{
+            list-style: none;
+        }
+        .chengji>li{
+            float: left;
+            width: 200px;
+            border: 1px solid #000;
+            text-align: center;
+            border-right: none;
+            margin-bottom: 10px;
+        }
+        .chengji>li:hover{
+            background-color: lightsalmon;
+        }
+        .clear{
+            clear: both;
+        }
+        .clear>.contains{
+            margin-left: 10px;
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+        <ul id="ul" class="chengji">
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+        </ul>
+    <div id="cheliebiao" class="clear">
+        <div class="contains">
+            <img src="img/1.jpg">
+        </div>
+        <div class="contains">
+            <img src="img/6.jpg">
+        </div>
+    </div>
+
+
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+        $('#ul>li').mouseover(function(){
+            var score=this.innerHTML
+            $.ajax({url:'student_select.php',
+                data:'score='+score,
+                success:function(arr){
+                var html=''
+                for(var i=0;i<arr.length;i++){
+                    var a=arr[i]
+                    html+=`<div class="contains">
+                                <img src='${a.pic}'>
+                           </div>`
+                }
+                cheliebiao.innerHTML=html
+            },
+                error:function(){
+                console.log('错误')
+            }})
+        })
+    </script>
+</body>
+</html>

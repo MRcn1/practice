@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #btn{
+            width: 100%;
+            padding: 3px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h3>书籍列表</h3>
+    <table width="100%" border="1px">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>名称</th>
+                <th>价格</th>
+                <th>图片</th>
+            </tr>
+        </thead>
+        <tbody id="tbodyList">
+            <tr>
+                <td colspan="4">尚未加载数据</td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="btn">加载更多数据</button>
+
+    <script>
+        btn.onclick=function(){
+            var xhr=new XMLHttpRequest();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===200){
+                        doRequest(xhr)
+                    }else{
+
+                    }
+                }
+            }
+            xhr.open('GET','book_select.php',true)
+            xhr.send(null)
+        }
+
+        function doRequest(xhr){
+            var xmlDocument=xhr.responseXML
+            var bookList=xmlDocument.querySelectorAll('book')
+            var html=''
+            for(var i=0;i<bookList.length;i++){
+                var b=bookList[i]
+                var bid= b.getAttribute('bid')
+                var bname= b.querySelector('bname').innerHTML
+                var price= b.querySelector('price').innerHTML
+                var pic= b.querySelector('pic').innerHTML
+                html+=`<tr><td>${bid}</td><td>${bname}</td><td>${price}</td><td>${pic}</td></tr>`
+            }
+            tbodyList.innerHTML += html;
+
+        }
+    </script>
+</body>
+</html>

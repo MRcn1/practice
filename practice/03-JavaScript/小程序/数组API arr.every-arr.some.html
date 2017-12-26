@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	var arr1=[1,2,3,4,5];
+	var arr2=[2,4,6,8,10];
+	var arr3=[2,41,23,42,1];
+
+	//判断数组是不是偶数
+	function one(arr){
+		return arr.every(val=>val%2==0)
+	}		      //some
+
+	console.log(one(arr1))
+	console.log(one(arr2))
+	console.log(one(arr3))
+
+	//判断数组是不是升序
+	function two(arr){
+		return arr.every((val,i,arr)=>i<arr.length-1?val<=arr[i+1]:true)
+	}
+
+	console.log(two(arr1))
+	console.log(two(arr2))
+	console.log(two(arr3))
+	
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>
+

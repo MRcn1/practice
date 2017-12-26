@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+<p>{{con}}</p>
+<p>{{val}}</p>
+    <button ng-click="btn()">按钮</button>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng'])
+
+    app.constant('$con',{id:20})
+    app.value("$val",{name:'chenwen'})
+
+    app.controller('myCtrl', function ($scope,$con,$val) {
+        $scope.con=$con.id
+        $scope.val=$val.name
+
+        $scope.btn=function(){
+            angular.extend($con,{id:33})
+            angular.extend($val,{name:'wenchen'})
+            $scope.con=$con.id
+            $scope.val=$val.name
+        }
+    })
+</script>
+
+</body>
+</html>

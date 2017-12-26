@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div>
+        书名：<input id="bname" type="text"><br>
+        书价：<input id="price" type="text"><br>
+        书图：<input id="pic" type="text"><br>
+        <input id="btn" type="button" value="提交">
+    </div>
+
+    <script>
+        btn.onclick=function(){
+            var b=document.getElementById('bname').value
+            var p=document.getElementById('price').value
+            var pi=document.getElementById('pic').value
+
+            var xhr=new XMLHttpRequest()
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===200){
+                        doRequest(xhr)
+                    }else{
+                        alert('响应成功但有问题')
+                    }
+                }
+
+            }
+            xhr.open('POST','book_add.php',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(`bname=${b}&price=${p}&pic=${pi}`)
+        }
+
+        function doRequest(xhr){
+            if(xhr.responseText==='succ'){
+                alert('添加成功')
+                b.value=''
+                p.value=''
+                pi.value=''
+            }if(xhr.responseText==='err'){
+                alert('添加失败！错误原因：'+xhr.responseText);
+            }
+        }
+    </script>
+</body>
+</html>

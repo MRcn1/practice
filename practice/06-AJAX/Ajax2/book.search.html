@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        input{
+            padding: 10px;
+            width: 400px;
+            font-size: 20px;
+        }
+        button{
+            padding: 7px;
+            font-size: 20px;
+        }
+        .contains{
+            position: relative;
+            margin: 200px 400px;
+        }
+        .succ{
+            list-style: none;
+            border: 1px solid black;
+            width: 420px;
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+        .succ li{
+            font-size: 25px;
+            padding: 5px 20px;
+        }
+        .succ li:hover{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div class="contains">
+    <input id="txt" type="text" placeholder="搜索"><button>搜索一下</button>
+    <ul id="ul" class="succ">
+
+    </ul>
+</div>
+
+<script>
+    txt.onkeyup=function(){
+        var t=this.value
+
+        if(t===''){
+            ul.className='succ'
+            return
+        }else{
+            var xhr=new XMLHttpRequest()
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status===200){
+                        doRequest(xhr)
+                    }else{
+                        alert('响应成功但有问题')
+                    }
+                }
+
+            }
+            xhr.open('POST','book_search.php',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(`kw=${t}`)
+        }
+    }
+
+    function doRequest(xhr){
+          if(xhr.responseText==''){
+              ul.className='succ'
+          }else{
+              ul.className='succ show'
+              ul.innerHTML=xhr.responseText
+          }
+      }
+
+    ul.onclick=function(e){
+        txt.value= e.target.innerHTML
+        ul.className='succ'
+    }
+
+</script>
+</body>
+</html>

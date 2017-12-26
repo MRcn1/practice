@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	#div1{
+		width: 50px;
+		height: 50px;
+		background: red;
+		float: left;
+	}
+	#div2{
+		width: 300px;
+		height: 180px;
+		background: blue;
+		float: left;
+		margin-left: 20px;
+		display: none;
+	}
+	</style>
+
+	<script type="text/javascript">
+	window.onload=function(){
+		var oDiv1=document.getElementById('div1');
+		var oDiv2=document.getElementById('div2');
+		var timer=null;
+
+		oDiv2.onmouseover=oDiv1.onmouseover=function(){
+			oDiv2.style.display='block';
+			clearTimeout(timer)
+		};
+
+		oDiv2.onmouseout=oDiv1.onmouseout=function(){
+			timer=setTimeout(function(){oDiv2.style.display='none';},500);
+		};
+
+		// oDiv2.onmouseover=function(){//合并在第一条中
+		// 	clearTimeout(timer);
+		// };
+
+		// oDiv2.onmouseout=function(){//合并在第二条中
+		// 	timer=setTimeout(function(){oDiv2.style.display='none';},500);
+		// };
+
+	};
+
+
+	</script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+	
+</body>
+</html>

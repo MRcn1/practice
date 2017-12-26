@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	var arr1=[1,2,3,4,5]
+	var arr2=[2,4,6,8,10]
+
+	//把是true的复制到新数字
+	var newarr1=arr1.filter((val,i,arr)=>val%2==0)
+	console.log(String(newarr1))
+
+	//对数组中所有相加返回到新数组
+	var newarr2=arr2.reduce((prve,val,i,arr)=>prve+val)
+	console.log(String(newarr2))
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>
+
+arr.every
+arr.some
+arr.forEach
+arr.map
+arr.filter
+arr.reduce

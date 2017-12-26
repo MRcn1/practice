@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+       div{
+           width: 300px;
+           height: 400px;
+           border: 1px solid #000;
+           margin: 100px 500px;
+       }
+        div>span{
+            display: inline-block;
+            width: 70px;
+            text-align: right;
+        }
+        div>input{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4>单词录入</h4>
+        <span>英文:</span><input type="text" id="yw" name="yw"><br>
+        <span>中文:</span><input type="text" id="zw" name="zw">
+        <span></span><input type="button" id="btn1" name="btn" value="保存">
+        <hr>
+        <span></span><button id="btn2">开始测试</button>
+    </div>
+<script type="text/javascript">
+
+        btn1.onclick=function(){
+                var y=yw.value
+                var z=zw.value
+                sessionStorage[y]=z
+                yw.value=''
+                zw.value=''
+                yw.focus()
+        }
+
+
+        btn2.onclick=function(){
+            if(sessionStorage.length==0){
+                alert('请先保存的单词')
+            }else{
+                location.href='webstorage1.1.html'
+            }
+        }
+</script>
+</body>
+</html>
+
+
+
+
+

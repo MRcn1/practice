@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    <p>{{shu}}</p>
+
+    <div ng-controller="myCtrl2">
+
+        <button ng-click="fn()">按钮</button>
+        <div ng-controller="myCtrl3">
+            <p>{{hao}}</p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng'])
+
+    app.controller('myCtrl', function ($scope) {
+        $scope.$on('eventNum',function(event,data){     <!--接收myCtrl2-$emit传过来的数据-->
+            $scope.shu=data
+        })
+    })
+
+
+
+    app.controller('myCtrl2',function($scope){
+        $scope.num=100
+        $scope.$emit('eventNum',$scope.num)
+
+
+        $scope.fn=function(){
+            $scope.cun=111
+            $scope.$broadcast('eventCun',$scope.cun)   //发送数据
+        }
+    })
+
+
+
+
+    app.controller('myCtrl3',function($scope){
+        $scope.$on('eventCun',function(event,data){     <!--接收myCtrl2里eventCun发的数据-->
+            $scope.hao=data
+        })
+    })
+</script>
+
+</body>
+</html>

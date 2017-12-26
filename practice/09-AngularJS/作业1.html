@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mymodule">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/angular.js"></script>
+</head>
+<body ng-controller="myctrl">
+    <button ng-click="fn()">添加</button>
+    <table>
+        <thead>
+            <tr>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>删除</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="obj in dishlist">
+                <td ng-repeat="tmp in obj">{{tmp}}</td>
+                <td><button ng-click="fnn($index)">删除</button></td>
+            </tr>
+        </tbody>
+    </table>
+<script>
+    var app=angular.module('mymodule',['ng'])
+
+    app.controller('myctrl',function($scope){
+        $scope.dishlist=[
+            {dnajia:'1',shuliang:'3',xiaoji:'5'},
+            {dnajia:'2',shuliang:'3',xiaoji:'5'},
+            {dnajia:'3',shuliang:'3',xiaoji:'5'}
+        ]
+
+        $scope.fn=function(){
+            $scope.dishlist.push({dnajia:'2',shuliang:'3',xiaoji:'5'})
+        }
+
+        $scope.fnn=function(num){
+            $scope.dishlist.splice(num,1)
+        }
+    })
+</script>
+
+</body>
+</html>

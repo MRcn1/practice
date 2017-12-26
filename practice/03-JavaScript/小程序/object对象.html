@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		//直接量
+		var lilei={
+			sname:'lilei',
+			sage:12,
+			inter(){
+				console.log(`i am is ${this.sname} i age ${this.sage}`)
+			}
+		}
+		
+		//不知道有几个属性时用这个
+		// var lilei=Object()
+		// lilei.sname='lilei',
+		// lilei.sage=11,
+		// lilei.inter=function(){
+		// 	console.log(`i am is ${this.sname} i age ${this.sage}`)
+		// }
+
+		console.log(lilei.sname)
+		console.log(lilei.sage)
+		lilei.inter()
+		var lixiaolei=lilei;
+		lilei=null;
+		lixiaolei.inter()
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

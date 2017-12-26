@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #can{
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+<canvas id="can" width="800" height="500"></canvas>
+
+
+<script type="text/javascript">
+    var ctx=can.getContext('2d')
+    ctx.beginPath()
+    ctx.arc(400,250,100,Math.PI*-1/2,Math.PI*2)
+    ctx.lineWidth=15
+    ctx.stroke()
+
+    var deg=0
+
+    var timer=setInterval(function(){
+        ctx.beginPath()
+        deg+=5
+        var e=-Math.PI/2+deg*Math.PI/180
+        ctx.arc(400,250,100,-Math.PI/2,e)
+        ctx.lineWidth=15
+        ctx.strokeStyle='#afa'
+        ctx.stroke()
+        if(e>=270*Math.PI/180){
+            clearInterval(timer)
+            console.log('123')
+        }
+    },41)
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function fn(n){
+			var a=1,b=1;
+			for(var i=0,c;i<n;i++){
+				c=a+b
+				a=b
+				b=c
+			}
+			return c
+		}
+
+		console.log(String(fn(18)))
+	</script>
+</head>
+<body>
+
+</body>
+</html>

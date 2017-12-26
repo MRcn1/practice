@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	
+	function flyer(name,speed){
+		this.name=name,
+		this.speed=speed
+	}
+	flyer.prototype.fly=function(){
+		console.log(`${this.name}-以时速-${this.speed}-公里飞行`)
+	}
+
+
+	function plane(name,speed,scroe){
+		//flyer.call(this,name,speed)
+		flyer.apply(this,arguments)
+		this.scroe=scroe
+	}
+	plane.prototype.getscroe=function(){
+		console.log(`击落${this.name}-得${this.scroe}分`)
+	}
+	Object.setPrototypeOf(plane.prototype,flyer.prototype)
+
+	var zdj=new plane('战斗机',300,100)
+
+	console.dir(zdj)
+	zdj.fly()
+	zdj.getscroe()
+
+
+	function bee(name,speed,award){
+		//flyer.call(this,name,speed)
+		flyer.apply(this,arguments)
+		this.award=award
+	}
+	bee.prototype.getaward=function(){
+		console.log(`击落${this.name}-奖励${this.award}条命`)
+	}
+	Object.setPrototypeOf(bee.prototype,flyer.prototype)
+	var mf=new bee('蜜蜂',50,1)
+
+	console.dir(mf)
+	mf.fly()
+	mf.getaward()
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>选飞机</h1>
+    <h3>把你喜欢的飞机拉上来</h3>
+    <img id="yes" src="img/p0.png" alt="">
+    <hr>
+    <div id="contain">
+        <img id="p3" src="img/p3.png">
+        <img id="p4" src="img/p4.png">
+        <img id="p5" src="img/p5.png">
+    </div>
+    <script>
+        var list=contain.querySelectorAll('img')
+        for(var i=0;i<list.length;i++){
+            var l=list[i]
+            l.ondragstart=function(e){
+                e.dataTransfer.setData('id',this.id)
+            }
+        }
+
+
+        yes.ondragover=function(e){
+            e.preventDefault()
+        }
+
+        yes.ondragend=function(){
+            this.src='img/p0.png'
+            var list=contain.querySelectorAll('img')
+            for(var i=0;i<list.length;i++){
+                list[i].className=''
+            }
+        }
+
+        yes.ondrop=function(e){
+            var id=e.dataTransfer.getData('id')
+            var elem=document.getElementById(id)
+            this.src=elem.src
+            elem.className='hide'
+
+            var list=contain.querySelectorAll('img')
+            for(var i=0;i<list.length;i++){
+                if(list[i]!=elem){
+                    list[i].className=''
+                }
+            }
+
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+

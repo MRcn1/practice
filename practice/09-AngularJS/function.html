@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng'])
+
+    app.controller('myCtrl', function ($scope) {
+        var arr=[1,2,3,4,5]
+        angular.forEach(arr,function(value,key){
+            console.log(key,value)
+        })
+
+        var stu={name:'tom',age:20}
+        angular.forEach(stu,function(value,key){
+            console.log(key,value)
+        })
+
+        var str='HiDe'
+        console.log(angular.uppercase(str))
+        console.log(angular.lowercase(str))
+
+        var jsonObj={name:'tom',age:21}
+        var jsonStr=angular.toJson(jsonObj)
+        console.log(jsonStr)
+        console.log(angular.fromJson(jsonStr))
+    })
+</script>
+
+</body>
+</html>

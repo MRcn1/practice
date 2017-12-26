@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/form-yanzhewng.css">
+
+</head>
+<body>
+    <div class="container">
+        <form action="">
+            <div class="form-group">
+                <laber class="control-laber" for="uname">用户名:</laber>
+                <input type="text" id="uname" name="uname" class="form-control" autofocus required maxlength="15" autocomplete="off">
+                <span class="help-block priamry">请输入6-15位的数字或英文</span>
+            </div>
+            <div class="form-group">
+                <laber class="control-laber" for="upwd">用户:</laber>
+                <input type="text" id="upwd" name="uname" class="form-control" required maxlength="12">
+                <span class="help-block hide">请输入密码在6-12位之间</span>
+            </div>
+            <div class="form-group">
+                <laber class="control-laber" for="umail">邮箱:</laber>
+                <input type="email" id="umail" name="uname" class="form-control" required>
+                <span class="help-block hide">请输入正确格式邮箱</span>
+            </div>
+            <div class="form-group">
+                <laber class="control-laber"></laber>
+                <input type="submit"class="form-control">
+            </div>
+        </form>
+        <video id="vid" src="res/birds.mp4" autoplay></video>
+    </div>
+    <script>
+        uname.onblur=function(){
+            if(this.validity.valueMissing){
+                this.nextElementSibling.innerHTML='用户名不能为空'
+                this.nextElementSibling.className='help-block danger'
+                this.setCustomValidity('用户名不能为空')
+            }else if(this.value.length<6){
+                this.nextElementSibling.innerHTML='用户名不能少于6位'
+                this.nextElementSibling.className='help-block danger'
+                this.setCustomValidity('用户名不能少于6位')
+            }else if(this.validity.tooLong){
+                this.nextElementSibling.innerHTML='用户名不能超过15位'
+                this.nextElementSibling.className='help-block danger'
+                this.setCustomValidity('用户名不能超过15位')
+            }else{
+                this.nextElementSibling.innerHTML='输入正确'
+                this.nextElementSibling.className='help-block success'
+                this.setCustomValidity('')
+            }
+        }
+
+        uname.onfocus=upwd.onfocus=umail.onfocus=function(){
+            this.nextElementSibling.className='help-block priamry'
+        }
+
+        upwd.onblur=function(){
+            if(this.validity.valueMissing){
+                this.nextElementSibling.innerHTML='密码不能为空'
+                this.nextElementSibling.className='help-block danger'
+                this.setCustomValidity('密码不能为空')
+            }else if(this.value.length<6){
+                this.nextElementSibling.innerHTML='密码不能少于6位'
+                this.nextElementSibling.className='help-block danger'
+                this.setCustomValidity('密码不能少于6位')
+            }else if(this.validity.tooLong){
+                this.nextElementSibling.innerHTML='密码不能超过12位'
+                this.nextElementSibling.className='help-block danger'
+                this.setCustomValidity('密码不能超过12位')
+            }else{
+                this.nextElementSibling.innerHTML='输入正确'
+                this.nextElementSibling.className='help-block success'
+                this.setCustomValidity('')
+            }
+        }
+        umail.onblur=function(){
+            if(this.validity.valueMissing){
+                this.nextElementSibling.innerHTML='邮箱不能为空'
+                this.nextElementSibling.className='help-block danger'
+                this.setCustomValidity('邮箱不能为空')
+            }
+        }
+    </script>
+</body>
+</html>

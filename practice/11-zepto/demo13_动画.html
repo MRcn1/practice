@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/zepto-fx-fxmethods.js"></script>
+</head>
+<body>
+
+<div id="divId">
+  <ul>
+    <li>test01</li>
+    <li>test02</li>
+    <li>test03</li>
+  </ul>
+</div>
+
+<button id="btn">clickMe</button>
+
+<script>
+  $('#btn').on('click', function () {
+    $('#divId').fadeOut();
+  })
+
+//  调用animate方法指定自定义的动画效果
+  $('div').animate({
+    opacity:'0.5',
+    left:'250px'
+  })
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>事件处理</title>
+<meta charset="utf-8" />
+<script>
+
+</script>
+</head>
+<body>
+ 	<form>
+		姓名:<input name="username"/>
+		密码:<input type="password" name="pwd"/>
+		<input type="submit"/>
+	</form>
+	<!--2. 实现不能后退的页面跳转-->
+	<button >go to tmooc</button>
+	<script type="text/javascript">
+	function fn(){
+		var search=location.search;
+		var obj={}
+		if(search!=''){
+			var split=search.slice(1).split('&')
+			for(var i=0;i<split.length;i++){
+				var arr=split[i].split("=")
+				obj[arr[0]]=arr[1]
+			}
+		}
+		return obj
+	};
+
+	var parm=fn()
+	console.log(parm)
+	</script>
+</body>
+</html>

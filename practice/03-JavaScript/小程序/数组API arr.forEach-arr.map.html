@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	var arr1=[1,2,3,4,5];
+	var arr2=[2,4,6,8,10];
+
+	//给每个数组执行相同操作
+	arr1.forEach((val,i,arr)=>arr[i]=val*2)
+	console.log(String(arr1))
+
+	//取出原数组加工后放入新数组
+	console.log(String(arr2))
+	var newarr2=arr2.map((val)=>val/2)
+	console.log(String(newarr2))
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>

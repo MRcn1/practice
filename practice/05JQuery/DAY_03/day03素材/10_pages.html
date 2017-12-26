@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title> new document </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<style>
+		body { margin: 0; }
+		.page {
+			position: fixed;
+			left: 0; right: 0; top: 0; bottom: 0;
+			overflow: hidden;
+			transition: all 1s linear;
+		}
+		.back,.go{
+			width:50px;height: 50px;
+			background: #afa;
+			position: fixed;
+			border-radius: 25px;
+			text-align: center;
+			line-height: 50px;
+			top: 50%;
+			margin-top: -25px;
+			text-decoration: none;
+		}
+		.go{
+			right: 0;
+		}
+		.right{
+			left: 100%;
+		}
+		
+		.left{
+			left: -100%;
+		}
+	</style>
+ </head>
+ <body>
+	<div class="page" style="background:#faa;">
+		第一个PAGE<hr>
+	</div>
+
+	<div class="page right" style="background:#afa;">
+		第二个PAGE<hr>
+	</div>
+
+	<div class="page right" style="background:#ffa;">
+		第三个PAGE<hr>
+	</div>
+
+	<div class="page right" style="left: 100%; background:#aaf;">
+		第四个PAGE<hr>
+	</div>
+	<a class='back' href="">&lt;</a>
+	<a class='go' href="">&gt;</a>
+
+
+	<script src="js/jquery-1.11.3.js"></script>
+	<script>
+	没做
+		$('.go').click(function(){
+			var $this=$('.page:not(.right):not(.left)')
+			
+			$this.css('left',-100+'%')
+		})
+	</script>
+ </body>
+</html>

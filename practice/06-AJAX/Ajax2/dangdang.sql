@@ -1,0 +1,12 @@
+SET NAMES utf8;
+DROP DATABASE IF EXISTS dangdang;
+CREATE DATABASE dangdang CHARACTER SET UTF8;
+USE dangdang;
+CREATE TABLE book(bid int primary key auto_increment,bname varchar(25),price float,pic varchar(25));
+INSERT INTO book VALUES(NULL,'盗墓笔记','38','img/1.jpg');
+INSERT INTO book VALUES(NULL,'inter','20','img/2.jpg');
+INSERT INTO book VALUES(NULL,'java指南','33','img/3.jpg');
+INSERT INTO book VALUES(NULL,'java基础','20','img/2.jpg');
+INSERT INTO book VALUES(NULL,'java入门','33','img/3.jpg');
+INSERT INTO book VALUES(NULL,'java高级','20','img/2.jpg');
+INSERT INTO book VALUES(NULL,'javascript指南','33','img/3.jpg');

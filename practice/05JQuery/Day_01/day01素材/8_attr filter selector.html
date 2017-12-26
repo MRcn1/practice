@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+	.tab{
+		list-style-type: none;
+	}
+
+	.tab>li{
+		float: left;
+		padding: 6px 0px;
+	}
+
+	.tab>li>a{
+		text-decoration: none;
+	}
+  </style>
+ </head>
+ <body>
+ <ul class="tab">
+ 	<li><a href="" data-toggle='tab'>wqe</a></li>
+ 	<li><a href="" data-toggle='tab'>sda</a></li>
+ 	<li><a href="" data-toggle='tab'>zxczx</a></li>
+ </ul>
+<script type="text/javascript" src='js/jquery-1.11.3.js'></script>
+<script type="text/javascript">
+$('.tab [data-toggle="tab"]:first')
+	.css({
+	border:'1px solid #aaa',
+	borderBottom:'none'})
+	.parent().nextAll().children('a').css({
+		borderBottom:'1px solid #aaa'
+	})
+
+	$('.tab [data-toggle="tab"]').click(function(){
+		$(this).css({
+			border:'1px solid #aaa',
+			borderBottom:'none'
+		})
+	})
+		
+
+
+
+
+	
+</script>
+ </body>
+</html>

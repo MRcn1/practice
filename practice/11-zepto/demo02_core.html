@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/zepto.js"></script>
+</head>
+<body>
+
+<script>
+  //与数组、对象操作相关
+  $.each([1,2,3], function (index,content) {
+    console.log("index is "+index+" content is "+content);
+  })
+
+  var obj = {name:'Audi',price:30};
+  $.each(obj, function (key,value) {
+    console.log("key is "+key+" value is "+value);
+  })
+
+  var array = [12,31,33,45,34];
+  $.map(array, function (value,key) {
+    console.log("value is "+value);
+  })
+
+//  返回一个新的数组
+  var grepList = $.grep(array, function (value) {
+    return value%2 == 0
+  })
+  console.log(grepList);
+
+//  extend 扩展属性
+  var target = {name:'BWM'};
+  var source = {price:30}
+
+  console.log($.extend(target,source));
+  console.log(target);
+
+
+//  工具类方法
+  console.log($.isPlainObject(target));
+  console.log($.isArray(grepList));
+
+//  trim:删除字符串首尾的空白符
+  var str = "  Web1609  ";
+  console.log(str.length);
+  console.log($.trim(str).length);
+
+//  反序列化（将json格式的字符串转换为json对象或者数组）
+
+  var jsonStr = '{"name":"BWM","price":30}';
+  var obj = $.parseJSON(jsonStr);
+  console.log(obj);
+
+
+</script>
+
+</body>
+</html>

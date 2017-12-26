@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title></title>
+</head>
+<body>
+<div id="react"></div>
+<script src="js/react.js"></script>
+<script src="js/react-dom.js"></script>
+<script src="js/browser.min.js"></script>
+<script type="text/babel">
+   var Hello=React.createClass({
+       getInitialState:function(){
+           return {opacity:1}
+       },
+       componentDidMount:function(){
+           setInterval(function(){
+               var opacity=this.state.opacity
+               opacity-=.05
+               if(opacity<0.1){
+                   opacity=1
+               }
+               this.setState({opacity:opacity})
+           }.bind(this),100)
+       },
+       render:function(){
+           return(
+                   <div>
+                        <h2 style={{opacity:this.state.opacity}}>Hello {this.props.name}</h2>
+                   </div>
+           )
+       }
+   })
+
+    ReactDOM.render(
+            <Hello name="陈文"/>,document.getElementById('react')
+    )
+</script>
+</body>
+</html>

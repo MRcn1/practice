@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var inputa=document.getElementById('input1');
+		var inputb=document.getElementById('input2');
+		var inputc=document.getElementById('input3');
+		var diva=document.getElementById('div1');
+		var inputo=diva.getElementsByTagName('input');
+		inputa.onclick=function(){
+			for(var i=0;i<inputo.length;i++){
+				inputo[i].checked=true;
+			}
+		}
+		inputb.onclick=function(){
+			for(var i=0;i<inputo.length;i++){
+				inputo[i].checked=false;
+			}
+		}
+		inputc.onclick=function(){
+			for(var i=0;i<inputo.length;i++){
+			
+			if(inputo[i].checked==false){
+				inputo[i].checked=true;
+			}else{
+				inputo[i].checked=false;
+			}
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+<input id="input1" type="button" value="全选">
+<input id="input2" type="button" value="不选">
+<input id="input3" type="button" value="反选">
+<div id="div1">
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+<input type="checkbox"><br/>
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 	
+<script>
+	if (typeof Array.prototype.indexOf()!='function') {
+		Array.prototype.indexOf=function(val,formi){
+			if (formi==undefined) {formi=0}
+				for(var i=formi;i<this.length;i++){
+					if(this[i]=val){
+						return i
+					}
+						return -1
+				}
+		}
+	}
+
+	var arr=[1,2,3,4,2,5]
+	document.write(arr.indexOf(2)+'</br>')
+	document.write(arr.indexOf(2,2))
+</script>
+
+</head>
+<body>
+	
+</body>
+</html>
+

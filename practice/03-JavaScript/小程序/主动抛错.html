@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function round(num,d){
+			if (!isNaN(num)&&!isNaN(d)) {
+				num=num*Math.pow(10,d)
+				num=Math.round(num)
+				return num/Math.pow(10,2)
+			}else{
+				throw new Error('参数必须是数字')
+			}
+		}
+
+		var num=parseFloat(prompt('请输入一个小数'))
+		var d=parseInt(prompt('请输入要保留的小数位'))
+		try{
+			document.write(round(num,d))
+		}catch(err){
+			alert(err)
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

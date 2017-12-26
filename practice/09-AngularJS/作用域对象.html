@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+
+</div>
+
+<div ng-controller="myCtrl2">
+    <p>{{num}}</p>          <!--继承了myCtrl里的rootScope父对象-->
+
+    <div ng-controller="myCtrl3">
+        <p>{{shu}}</p>      <!--放在myCtrl2里继承了myCtrl2对象-->
+    </div>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng'])
+
+    app.controller('myCtrl',function($scope,$rootScope) {
+        $rootScope.num=100
+    })
+
+    app.controller('myCtrl2',function($scope){
+        $scope.shu=10
+    })
+
+    app.controller('myCtrl3',function($scope){
+
+    })
+</script>
+
+</body>
+</html>

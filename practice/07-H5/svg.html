@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #svg{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h1>svg绘图技术</h1>
+    <svg id="svg" width="500" height="500">
+    </svg>
+
+    <script src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+   function rn(min,max){
+       return Math.floor(Math.random()*(max-min+1)+min)
+   }
+
+    function rb(){
+        var r=rn(0,255)
+        var g=rn(0,255)
+        var b=rn(0,255)
+
+        return `rgb(${r},${g},${b})`
+    }
+
+    for(var i=0;i<100;i++){
+        var circle=document.createElementNS('http://www.w3.org/2000/svg','circle')
+        circle.setAttribute('r',rn(0,50))
+        circle.setAttribute('cx',rn(0,500))
+        circle.setAttribute('cy',rn(0,500))
+        circle.setAttribute('fill',rb(0,255))
+        svg.appendChild(circle)
+    }
+
+
+</script>
+</body>
+</html>
+
+
+
+
+

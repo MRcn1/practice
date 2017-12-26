@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #can{
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+<canvas id="can" width="800" height="500"></canvas>
+
+<script src="js/Chart.js"></script>
+<script type="text/javascript">
+    new Chart(can, {
+        type: 'bar',
+        data: {
+            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.9)',
+                    'rgba(255, 99, 132, 0.9)',
+                    'rgba(255, 99, 132, 0.9)',
+                    'rgba(255, 99, 132, 0.9)',
+                    'rgba(255, 99, 132, 0.9)',
+                    'rgba(255, 99, 132, 0.9)',
+                ],
+            }]
+        },
+
+        options: {
+            responsive: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
+
+
+
+
+

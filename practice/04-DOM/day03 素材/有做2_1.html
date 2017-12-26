@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态操作表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:500px; border-collapse:collapse;
+		text-align:center;
+	}
+	td{border:1px solid #ccc}
+	thead td{font-weight:bold;}
+</style>
+
+</head>
+<body>
+	<div id="data"></div>
+
+	<script>
+		var data=[
+			{"id":1001,"name":'可口可乐',"price":2.5,"count":3000},
+			{"id":1003,"name":'百事可乐',"price":2.5,"count":5000},
+			{"id":1011,"name":'非常可乐',"price":2.3,"count":1000}
+		];
+	
+
+	var table=document.createElement('table');
+	var thead=table.createTHead();
+	var tr=thead.insertRow();
+	for(var key in data[0]){
+		tr.insertCell().innerHTML=key
+	};
+	tr.insertCell().innerHTML='按钮'
+
+	var tbody=table.createTBody();
+	for(var r=0;r<data.length;r++){
+		var tr=tbody.insertRow()
+		for(var key in data[r]){
+			tr.insertCell().innerHTML=data[r][key]
+		};
+		var td=tr.insertCell()
+		var btn=document.createElement('button')
+		btn.innerHTML='删除'
+		btn.onclick=shanchu
+		td.appendChild(btn)
+	};
+
+
+	document.getElementById('data').appendChild(table);
+
+	function shanchu(){
+		var tr=this.parentElement.parentElement
+		var parm=tr.cells[1].innerHTML
+		if(confirm(`是否确认删除--${parm}`)){
+			table.deleteRow(tr.rowIndex)
+		}
+		
+	};
+
+</script>
+</body>
+</html>
+
+
+

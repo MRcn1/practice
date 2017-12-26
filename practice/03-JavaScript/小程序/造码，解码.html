@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		var zi="我在308,w2w2"
+		for(var i=0,code='';i<zi.length;i++){
+			var r=zi.charCodeAt(i)
+			r=(100000+r+'').slice(1)
+			code+=r
+			}
+		console.log(code)
+
+		for(var i=0,w='';i<code.length;i=i+5){
+			var u=code.substr(i,5)
+			var one=String.fromCharCode(u)
+			w+=one
+		}
+		console.log(w)
+	</script>
+</head>
+<body>
+
+</body>
+</html>

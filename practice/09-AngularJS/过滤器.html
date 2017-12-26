@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/angular.js"></script>
+    <title></title>
+</head>
+<body>
+
+<div ng-controller="myCtrl">
+    <!--currency-货币过滤器-->
+    <p>{{num}}</p>
+    <p>{{num|currency}}</p>
+    <p>{{num|currency:'￥'}}</p>
+
+    <!--data过滤器-->
+    <p>{{Date|date:'yyyy-MM-dd'}}</p>
+
+    <!--排序过滤去-->
+    <ul>
+        <li ng-repeat="obj in list|orderBy:'age':true">
+            {{obj.name+' '+obj.age+' '+obj.scope}}
+        </li>
+    </ul>
+
+    <ol>
+        <li ng-repeat="tmp in arr|limitTo:2">{{tmp}}</li>
+    </ol>
+</div>
+
+<script>
+    var app = angular.module('myApp', ['ng'])
+
+    app.controller('myCtrl', function ($scope) {
+        $scope.num=20
+
+        $scope.Date=new Date()
+
+        $scope.list=[
+            {name:'tom',age:50,scope:80},
+            {name:'lucy',age:20,scope:90},
+            {name:'jak',age:30,scope:40}
+        ]
+
+        $scope.arr=[1,3,5,6]
+    })
+</script>
+
+</body>
+</html>

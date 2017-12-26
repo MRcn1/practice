@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+用户名：<input id="user" type="text"><br>
+密码号：<input id="pwd" type="text"><br>
+<button id="btn">注册</button>
+
+<script src="js/jquery-1.11.3.js"></script>
+
+<script>
+    btn.onclick=function(){
+        var u=user.value
+        var p=pwd.value
+
+        $.post('user_add.php',{uname:u,upwd:p},function(txt){
+            if(txt==='succ'){
+                alert('注册成功')
+            }
+        })
+
+    }
+</script>
+</body>
+</html>
